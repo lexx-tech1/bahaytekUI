@@ -13,8 +13,13 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script>
   var RC_SITE_KEY = '6LeDVu4sAAAAANFwYd3SggZGOZIQgdiL-2gtVnCp';
+  var rcRegPending = false;
   window.onRecaptchaLoad = function() {
     window.rcLogin = grecaptcha.render('rcLogin', { sitekey: RC_SITE_KEY });
+    if (rcRegPending) {
+      window.rcReg = grecaptcha.render('rcReg', { sitekey: RC_SITE_KEY });
+      rcRegPending = false;
+    }
   };
 </script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
@@ -409,8 +414,12 @@ function switchTab(tab) {
   document.getElementById('panelRegister').classList.toggle('active', !isLogin);
   hideAlert('loginAlert');
   hideAlert('registerAlert');
-  if (!isLogin && window.rcReg === undefined && typeof grecaptcha !== 'undefined') {
-    window.rcReg = grecaptcha.render('rcReg', { sitekey: RC_SITE_KEY });
+  if (!isLogin && window.rcReg === undefined) {
+    if (typeof grecaptcha !== 'undefined') {
+      window.rcReg = grecaptcha.render('rcReg', { sitekey: RC_SITE_KEY });
+    } else {
+      rcRegPending = true;
+    }
   }
 }
 
@@ -442,16 +451,12 @@ function activeCaptchaWidget(){ return activePanel() === 'login' ? window.rcLogi
 function activeAlertId()     { return activePanel() === 'login' ? 'loginAlert' : 'registerAlert'; }
 
 function oauthLogin(provider) {
-  const alertId      = activeAlertId();
-  const captchaToken = grecaptcha.getResponse(activeCaptchaWidget());
-  if (!captchaToken) { showAlert(alertId, 'Please complete the reCAPTCHA first.', 'error'); return; }
   if (provider === 'facebook') {
     FB.login(function(response) {
       if (response.authResponse) {
-        handleFacebookToken(response.authResponse.accessToken, captchaToken);
+        handleFacebookToken(response.authResponse.accessToken);
       } else {
-        showAlert(alertId, 'Facebook login was cancelled.', 'error');
-        grecaptcha.reset(activeCaptchaWidget());
+        showAlert(activeAlertId(), 'Facebook login was cancelled.', 'error');
       }
     }, { scope: 'email,public_profile' });
     return;
@@ -459,14 +464,14 @@ function oauthLogin(provider) {
   window.location.href = `${API}/${provider}`;
 }
 
-async function handleFacebookToken(accessToken, captchaToken) {
+async function handleFacebookToken(accessToken) {
   try {
     const res  = await fetch(`${API}/facebook/token`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body:   JSON.stringify({ accessToken, captchaToken }),
+      body:   JSON.stringify({ accessToken }),
     });
     const data = await res.json();
-    if (!res.ok) { showAlert(activeAlertId(), data.message || 'Facebook login failed', 'error'); grecaptcha.reset(activeCaptchaWidget()); return; }
+    if (!res.ok) { showAlert(activeAlertId(), data.message || 'Facebook login failed', 'error'); return; }
     saveSession(data); showLoggedIn(data.user);
   } catch { showAlert(activeAlertId(), 'Facebook login failed. Please try again.', 'error'); }
 }

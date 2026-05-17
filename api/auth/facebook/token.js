@@ -1,16 +1,12 @@
-const dbConnect       = require('../../_lib/db');
-const User            = require('../../_lib/User');
-const { makeToken }   = require('../../_lib/token');
-const verifyRecaptcha = require('../../_lib/recaptcha');
+const dbConnect     = require('../../_lib/db');
+const User          = require('../../_lib/User');
+const { makeToken } = require('../../_lib/token');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { accessToken, captchaToken } = req.body;
+  const { accessToken } = req.body;
   if (!accessToken) return res.status(400).json({ message: 'Access token required' });
-
-  const captchaOk = await verifyRecaptcha(captchaToken);
-  if (!captchaOk) return res.status(400).json({ message: 'Please complete the reCAPTCHA' });
 
   try {
     const profileRes = await fetch(
