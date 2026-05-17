@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Book a Consultation — BAHAYTEK</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --forest:#336a29;--green:#498428;--emerald:#80b155;--mint:#c1d95c;
+  --cream:#f5f9f0;--sand:#edf5e3;--gold:#b68a3b;--gold-lt:#fef3c7;
+  --dark:#1a2e12;--charcoal:#2e4a1e;--gray:#5a7248;--border:#c8ddb0;
+  --red:#dc2626;--red-lt:#fee2e2;--blue:#1d4ed8;--purple:#6d28d9;
+  --purple-lt:#ede9fe;--white:#ffffff;
+  --sh-sm:0 2px 8px rgba(51,106,41,.07);--sh-md:0 8px 24px rgba(51,106,41,.11);--sh-lg:0 20px 48px rgba(51,106,41,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:linear-gradient(160deg,#f0f7ea 0%,#e8f2df 40%,#f2f8ed 100%);min-height:100vh;color:var(--dark);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(51,106,41,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(193,217,92,.15);height:62px;display:flex;align-items:center;padding:0 52px;justify-content:space-between;transition:background .3s}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;line-height:1;flex-shrink:0;height:62px;align-items:center;justify-content:center}
+.nav-logo .brand{font-family:'DM Serif Display',serif;font-size:1.15rem;color:#fff}
+.nav-logo .brand .b{color:var(--mint)}
+.nav-logo .sub{font-size:.5rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(193,217,92,.7);margin-top:2px}
+.nav-links{display:flex;gap:28px;flex-wrap:nowrap;flex-shrink:0}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s;position:relative;padding-bottom:2px;outline:none;white-space:nowrap;flex-shrink:0}
+.nav-links a::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1.5px;background:var(--mint);transform:scaleX(0);transition:transform .25s;transform-origin:left}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a.active::after,.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a:focus{outline:none}
+.btn-nav-outline{padding:7px 18px;border-radius:8px;font-size:.78rem;font-weight:600;background:transparent;border:1.5px solid rgba(193,217,92,.4);color:#fff;cursor:pointer;font-family:inherit;transition:all .2s;outline:none;flex-shrink:0;height:auto;display:flex;align-items:center}
+.btn-nav-outline:hover{border-color:var(--mint);background:rgba(193,217,92,.1)}
+.btn-nav-outline:focus,.btn-nav-outline:active{border-color:var(--mint);background:rgba(193,217,92,.1);outline:none}
+.btn-nav-solid{padding:7px 18px;border-radius:8px;font-size:.78rem;font-weight:700;background:var(--mint);color:var(--forest);border:none;cursor:pointer;font-family:inherit;transition:all .2s;outline:none;flex-shrink:0;height:auto;display:flex;align-items:center}
+.btn-nav-solid:hover{background:#eaf59d}
+.btn-nav-solid:focus,.btn-nav-solid:active{background:#eaf59d;outline:none}
+.nav-actions{display:flex;gap:8px;align-items:center;flex-shrink:0;height:62px;justify-content:center}
+
+@media(max-width:768px){
+  .nav{padding:0 24px}
+  .nav-links{display:none}
+}
+
+/* SERVICES SELECTION */
+.page-wrap{margin-top:62px;padding:48px 72px 80px;max-width:1300px;margin-left:auto;margin-right:auto;margin-top:62px}
+.page-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--emerald);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.page-eyebrow::before{content:'';width:22px;height:2px;background:var(--emerald);flex-shrink:0}
+.page-title{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--dark);margin-bottom:8px}
+.page-title em{font-style:italic;color:var(--emerald)}
+.page-sub{font-size:.88rem;color:var(--gray);max-width:520px;line-height:1.7;margin-bottom:40px}
+
+/* SERVICE TYPE CARDS */
+.service-type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.service-type-card{background:var(--white);border:2px solid var(--border);border-radius:16px;padding:22px;cursor:pointer;transition:all .25s;position:relative}
+.service-type-card:hover{border-color:var(--emerald);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.service-type-card.selected{border-color:var(--forest);background:rgba(51,106,41,.04);box-shadow:0 0 0 4px rgba(51,106,41,.1)}
+.service-type-card.selected::after{content:'✓';position:absolute;top:12px;right:14px;width:22px;height:22px;border-radius:50%;background:var(--forest);color:#fff;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;line-height:22px;text-align:center}
+.stc-icon{font-size:1.8rem;margin-bottom:10px}
+.stc-title{font-weight:800;font-size:.9rem;color:var(--dark);margin-bottom:5px}
+.stc-desc{font-size:.76rem;color:var(--gray);line-height:1.6}
+
+/* LAYOUT */
+.book-layout{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+
+/* CARDS */
+.book-card{background:var(--white);border-radius:20px;border:1px solid rgba(128,177,85,.15);padding:28px;box-shadow:0 4px 24px rgba(51,106,41,.07),0 1px 4px rgba(51,106,41,.04);margin-bottom:18px}
+.step-label{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--forest);color:#fff;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-txt{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+
+/* CALENDAR */
+.cal-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.cal-month-display{font-weight:800;font-size:1rem;color:var(--dark)}
+.cal-arrows{display:flex;gap:6px}
+.cal-arrow-btn{width:32px;height:32px;border-radius:10px;border:1.5px solid #c8ddb0;background:#fff;cursor:pointer;font-size:.9rem;color:var(--charcoal);display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:inherit}
+.cal-arrow-btn:hover{border-color:var(--emerald);color:var(--forest)}
+.cal-grid-main{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-dow-cell{text-align:center;font-size:.68rem;font-weight:700;color:var(--gray);padding:6px 0 12px;letter-spacing:.5px;text-transform:uppercase}
+.cal-day-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .18s;border:1.5px solid transparent}
+.cal-day-cell.dim{color:#c4d6a8;pointer-events:none}
+.cal-day-cell.has-slot{background:rgba(128,177,85,.12);color:var(--green);font-weight:700}
+.cal-day-cell.has-slot:hover{background:rgba(128,177,85,.22);border-color:rgba(128,177,85,.35)}
+.cal-day-cell.past,.cal-day-cell.weekend{color:#c4d6a8;cursor:not-allowed;pointer-events:none}
+.cal-day-cell.today{border-color:var(--emerald)!important}
+.cal-day-cell.selected{background:var(--forest)!important;color:#fff!important;border-color:var(--forest)!important;box-shadow:0 4px 14px rgba(51,106,41,.3)}
+.cal-legend{display:flex;gap:20px;margin-top:18px;padding-top:16px;border-top:1px solid #deeece}
+.leg-item{display:flex;align-items:center;gap:7px;font-size:.72rem;color:var(--gray)}
+.leg-sq{width:12px;height:12px;border-radius:4px}
+.leg-sq.avail{background:rgba(128,177,85,.2);border:1px solid rgba(128,177,85,.35)}
+.leg-sq.sel{background:var(--forest)}
+.leg-sq.tod{background:transparent;border:2px solid var(--emerald)}
+
+/* SLOTS */
+.slots-header-row{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.slots-title-txt{font-weight:800;font-size:.95rem;color:var(--dark)}
+.slots-date-tag{display:inline-flex;align-items:center;padding:4px 12px;background:rgba(128,177,85,.12);border-radius:20px;font-size:.78rem;font-weight:700;color:var(--emerald)}
+.slots-wrap{display:flex;flex-wrap:wrap;gap:10px}
+.slot-pill{padding:10px 20px;border-radius:12px;border:1.5px solid #c8ddb0;font-size:.82rem;font-weight:600;cursor:pointer;background:#fff;color:var(--charcoal);transition:all .18s;font-family:inherit}
+.slot-pill:hover{border-color:var(--emerald);color:var(--forest);transform:translateY(-2px)}
+.slot-pill.unavail{background:#f5faf0;color:#b8cc9a;cursor:not-allowed;border-color:#deeece}
+.slot-pill.selected{background:var(--forest);color:#fff;border-color:var(--forest);box-shadow:0 6px 16px rgba(51,106,41,.25);transform:translateY(-2px)}
+
+/* FORM */
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.form-row-1{margin-bottom:16px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:.7rem;font-weight:700;color:var(--charcoal);letter-spacing:.3px;text-transform:uppercase}
+.form-field input,.form-field textarea,.form-field select{padding:11px 14px;border:1.5px solid #c8ddb0;border-radius:11px;font-size:.84rem;font-family:inherit;color:var(--dark);background:#fafdf6;outline:none;transition:all .2s;width:100%}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--emerald);background:#fff;box-shadow:0 0 0 4px rgba(128,177,85,.1)}
+.form-field textarea{resize:vertical;min-height:92px}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#a8c07e}
+.collab-toggle{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--cream);border-radius:11px;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;margin-bottom:16px}
+.collab-toggle:hover{border-color:var(--emerald)}
+.collab-toggle input[type=checkbox]{accent-color:var(--forest);width:17px;height:17px;cursor:pointer}
+.collab-toggle-txt .ttl{font-weight:700;font-size:.85rem;color:var(--dark)}
+.collab-toggle-txt .sub{font-size:.74rem;color:var(--gray);margin-top:2px}
+.collab-details{display:none;margin-bottom:16px}
+.collab-details.show{display:block}
+
+/* SUMMARY CARD */
+.summary-card{background:linear-gradient(160deg,var(--forest) 0%,#3d7030 60%,#2e5e22 100%);border-radius:22px;padding:26px;box-shadow:0 12px 40px rgba(51,106,41,.25);position:sticky;top:80px}
+.summary-title{font-weight:800;font-size:.95rem;color:#fff;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.sum-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.sum-lbl{font-size:.76rem;color:rgba(255,255,255,.55);font-weight:500}
+.sum-val{font-size:.8rem;font-weight:700;color:#fff;text-align:right;max-width:160px}
+.sum-val.green{color:var(--mint)}
+.sum-val.muted{color:rgba(255,255,255,.35);font-weight:400;font-style:italic}
+.sum-divider{height:1px;background:rgba(255,255,255,.1);margin:4px 0 14px}
+.status-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;background:rgba(193,217,92,.18);border:1px solid rgba(193,217,92,.3);font-size:.72rem;font-weight:700;color:var(--mint)}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--mint);animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.btn-confirm{width:100%;padding:14px;border-radius:13px;background:var(--mint);color:var(--forest);border:none;font-size:.9rem;font-weight:800;cursor:pointer;font-family:inherit;margin-top:10px;transition:all .2s}
+.btn-confirm:hover{background:#eaf59d;box-shadow:0 8px 24px rgba(193,217,92,.3);transform:translateY(-2px)}
+.btn-confirm:disabled{background:rgba(255,255,255,.12);color:rgba(255,255,255,.3);cursor:not-allowed;transform:none;box-shadow:none}
+.confirm-note{font-size:.72rem;color:rgba(255,255,255,.42);text-align:center;margin-top:12px;line-height:1.6}
+.book-right{position:sticky;top:80px;align-self:start}
+
+@media(max-width:1000px){.book-layout{grid-template-columns:1fr}.book-right{position:static}.summary-card{position:static}.page-wrap{padding:40px 36px 60px}.service-type-grid{grid-template-columns:1fr 1fr}.form-row-3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.service-type-grid{grid-template-columns:1fr}.page-wrap{padding:28px 20px 60px}.nav{padding:0 20px}.nav-links{display:none}.form-row-2,.form-row-3{grid-template-columns:1fr}}
+
+footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 72px 32px;margin-top:80px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .wordmark{font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;display:block;margin-bottom:12px}
+.footer-brand .wordmark .b{color:#c1d95c}
+.footer-brand p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px}
+.footer-col h4{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;transition:color .2s}
+.footer-col ul li a:hover{color:#c1d95c}
+.footer-col ul li{color:rgba(255,255,255,.45);font-size:.82rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.25)}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:8px;text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="brand"><span class="b">BAHAY</span>TEK</span>
+    <span class="sub">Product Development Services</span>
+  </a>
+    <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="about.html">About</a>
+    <a href="shop.html" id="nav-shop">Shop</a>
+    <a href="workshops.html" id="nav-workshops">Workshops</a>
+    <a href="consultation.html" id="nav-consultation">Consultation</a>
+  </div>
+  <div class="nav-actions">
+    <a href="login.php" class="btn-nav-outline">Log In</a>
+    <a href="login.php?tab=register" class="btn-nav-solid">Sign Up</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="page-eyebrow">Consultation Booking</div>
+  <h1 class="page-title">Book a <em>Consultation</em></h1>
+  <p class="page-sub">Choose your service type, pick a date and time, then describe what you'd like to discuss. Our team will confirm your booking within 24 hours.</p>
+
+  <!-- SERVICE TYPE SELECTOR -->
+  <div style="margin-bottom:12px"><div class="step-label"><div class="step-num">1</div><span class="step-txt">Select Service Type</span></div></div>
+  <div class="service-type-grid">
+    <div class="service-type-card" onclick="selectService(this,'Research Consultancy')">
+      <div class="stc-icon">🔬</div>
+      <div class="stc-title">Research Consultancy</div>
+      <div class="stc-desc">Collaborate on studies, experiments, and sustainable agriculture projects with our research team.</div>
+    </div>
+    <div class="service-type-card" onclick="selectService(this,'Product Development')">
+      <div class="stc-icon">⚙️</div>
+      <div class="stc-title">Product Development</div>
+      <div class="stc-desc">Turn your idea into a working prototype. We support design, fabrication, and lab testing.</div>
+    </div>
+    <div class="service-type-card" onclick="selectService(this,'General Consultancy')">
+      <div class="stc-icon">📋</div>
+      <div class="stc-title">General Consultancy</div>
+      <div class="stc-desc">Get expert guidance on sustainable technology, appropriate tech, and innovation for your community.</div>
+    </div>
+  </div>
+
+  <div class="book-layout">
+    <div class="book-left">
+
+      <!-- CALENDAR -->
+      <div class="step-label"><div class="step-num">2</div><span class="step-txt">Choose a Date</span></div>
+      <div class="book-card">
+        <div class="cal-top-row">
+          <div class="cal-month-display" id="calMonthDisplay">Loading…</div>
+          <div class="cal-arrows">
+            <button class="cal-arrow-btn" onclick="calPrev()">‹</button>
+            <button class="cal-arrow-btn" onclick="calNext()">›</button>
+          </div>
+        </div>
+        <div class="cal-grid-main" id="calGridMain"></div>
+        <div class="cal-legend">
+          <div class="leg-item"><div class="leg-sq avail"></div> Has slots</div>
+          <div class="leg-item"><div class="leg-sq sel"></div> Selected</div>
+          <div class="leg-item"><div class="leg-sq tod"></div> Today</div>
+        </div>
+      </div>
+
+      <!-- SLOTS -->
+      <div class="step-label"><div class="step-num">3</div><span class="step-txt">Pick a Time Slot</span></div>
+      <div class="book-card">
+        <div class="slots-header-row">
+          <div class="slots-title-txt">Available Slots</div>
+          <div class="slots-date-tag" id="slotsDateTxt">Select a date</div>
+        </div>
+        <div class="slots-wrap" id="slotsWrap">
+          <div style="color:#b8c4bc;font-size:.82rem;font-style:italic;">Pick a date on the calendar to see available time slots.</div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="step-label"><div class="step-num">4</div><span class="step-txt">Your Details</span></div>
+      <div class="book-card">
+        <div class="form-row-2">
+          <div class="form-field"><label>Full Name</label><input type="text" placeholder="Maria Santos" id="inp-name" oninput="syncSummary()"/></div>
+          <div class="form-field"><label>Email Address</label><input type="email" placeholder="maria@email.com"/></div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-field"><label>Phone Number</label><input type="text" placeholder="+63 9XX XXX XXXX"/></div>
+          <div class="form-field"><label>No. of Attendees</label><input type="number" placeholder="1" value="1" min="1" max="10" id="inp-att" oninput="syncSummary()"/></div>
+          <div class="form-field"><label>Organization (optional)</label><input type="text" placeholder="School / Company"/></div>
+        </div>
+        <div class="form-row-1">
+          <div class="form-field"><label>Topic / Subject to Consult</label><input type="text" placeholder="e.g., Biogas digester for household use" id="inp-topic" oninput="syncSummary()"/></div>
+        </div>
+
+        <label class="collab-toggle" onclick="toggleCollab()">
+          <input type="checkbox" id="collabCheck"/>
+          <div class="collab-toggle-txt">
+            <div class="ttl">🤝 Include Research Collaboration Request</div>
+            <div class="sub">Check this if you want to propose a collaborative research project with Bahay Teknik</div>
+          </div>
+        </label>
+
+        <div class="collab-details" id="collabDetails">
+          <div class="form-row-2">
+            <div class="form-field"><label>Research Area</label><input type="text" placeholder="e.g., Renewable Energy, Biogas"/></div>
+            <div class="form-field"><label>Expected Duration</label><select><option>1–3 months</option><option>3–6 months</option><option>6–12 months</option><option>More than 1 year</option></select></div>
+          </div>
+          <div class="form-row-1">
+            <div class="form-field"><label>Research Description</label><textarea placeholder="Describe your research idea, goals, and how you'd like to collaborate with Bahay Teknik..."></textarea></div>
+          </div>
+        </div>
+
+        <div class="form-row-1">
+          <div class="form-field"><label>Additional Notes</label><textarea placeholder="Describe your project, background, or specific questions you'd like answered during the consultation..."></textarea></div>
+        </div>
+      </div>
+
+    </div><!-- /book-left -->
+
+    <!-- SUMMARY -->
+    <div class="book-right">
+      <div class="summary-card">
+        <div class="summary-title">📋 Booking Summary</div>
+        <div class="sum-row"><span class="sum-lbl">Service</span><span class="sum-val" id="sum-service" style="color:rgba(255,255,255,.35);font-style:italic">Not selected</span></div>
+        <div class="sum-row"><span class="sum-lbl">Date</span><span class="sum-val" id="sum-date" style="color:rgba(255,255,255,.35);font-style:italic">Not set</span></div>
+        <div class="sum-row"><span class="sum-lbl">Time</span><span class="sum-val green" id="sum-time" style="color:rgba(255,255,255,.35);font-style:italic">Not set</span></div>
+        <div class="sum-row"><span class="sum-lbl">Duration</span><span class="sum-val">1 hour</span></div>
+        <div class="sum-row"><span class="sum-lbl">Attendees</span><span class="sum-val" id="sum-att">1 person</span></div>
+        <div class="sum-row"><span class="sum-lbl">Consultant</span><span class="sum-val">Eng. Reyes</span></div>
+        <div class="sum-row"><span class="sum-lbl">Topic</span><span class="sum-val" id="sum-topic" style="color:rgba(255,255,255,.35);font-style:italic">Not set</span></div>
+        <div class="sum-divider"></div>
+        <div class="sum-row"><span class="sum-lbl">Status</span><span class="sum-val"><span class="status-badge"><span class="status-dot"></span><span id="sum-status">Slot Available</span></span></span></div>
+        <button class="btn-confirm" id="btnConfirm" onclick="doConfirm()">Confirm Booking</button>
+        <p class="confirm-note">Awaiting admin approval. You'll be notified via email once confirmed.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS=['Su','Mo','Tu','We','Th','Fr','Sa'];
+const avail={};
+let selServiceType = null;
+
+(function(){
+  const t=new Date(),y=t.getFullYear(),m=t.getMonth();
+  for(let mo=0;mo<=2;mo++){
+    const dim=new Date(y,m+mo+1,0).getDate();
+    for(let d=1;d<=dim;d++){
+      const dt=new Date(y,m+mo,d);
+      if(dt.getDay()===0||dt.getDay()===6) continue;
+      const key=`${y}-${m+mo}-${d}`;
+      const r=(d*7+mo*3)%10;
+      avail[key]=r<5?'free':r<8?'partial':'taken';
+    }
+  }
+})();
+
+let calY,calM,selKey=null,selSlot=null;
+
+function selectService(el, name) {
+  document.querySelectorAll('.service-type-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selServiceType = name;
+  document.getElementById('sum-service').textContent = name;
+  document.getElementById('sum-service').style.color = '#fff';
+  document.getElementById('sum-service').style.fontStyle = 'normal';
+}
+
+function getSlots(key){
+  const s=avail[key];
+  const all=['8:00 AM','9:00 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
+  if(s==='free') return all.map(l=>({l,ok:true}));
+  if(s==='taken') return all.map(l=>({l,ok:false}));
+  const d=parseInt(key.split('-')[2]);
+  return all.map((l,i)=>({l,ok:(d+i)%2===0}));
+}
+
+function calInit(){const n=new Date();calY=n.getFullYear();calM=n.getMonth();renderCal();}
+function calPrev(){calM--;if(calM<0){calM=11;calY--;}renderCal();}
+function calNext(){calM++;if(calM>11){calM=0;calY++;}renderCal();}
+
+function renderCal(){
+  document.getElementById('calMonthDisplay').textContent=MONTHS[calM]+' '+calY;
+  const g=document.getElementById('calGridMain');
+  g.innerHTML='';
+  DAYS.forEach(d=>{const el=document.createElement('div');el.className='cal-dow-cell';el.textContent=d;g.appendChild(el);});
+  const first=new Date(calY,calM,1).getDay();
+  const dim=new Date(calY,calM+1,0).getDate();
+  const prevDim=new Date(calY,calM,0).getDate();
+  const today=new Date();
+  for(let i=0;i<first;i++){const el=document.createElement('div');el.className='cal-day-cell dim';el.textContent=prevDim-first+1+i;g.appendChild(el);}
+  for(let d=1;d<=dim;d++){
+    const key=`${calY}-${calM}-${d}`;
+    const dt=new Date(calY,calM,d);
+    const isToday=dt.toDateString()===today.toDateString();
+    const isPast=dt<new Date(today.getFullYear(),today.getMonth(),today.getDate());
+    const isWknd=dt.getDay()===0||dt.getDay()===6;
+    const status=avail[key];
+    const el=document.createElement('div');
+    el.textContent=d;
+    let cls='cal-day-cell';
+    if(selKey===key) cls+=' selected';
+    else if(isPast||isWknd) cls+=' past';
+    else if(!status||status==='taken') cls+=' weekend';
+    else cls+=' has-slot';
+    if(isToday&&selKey!==key) cls+=' today';
+    el.className=cls;
+    if(!isPast&&!isWknd&&status&&status!=='taken') el.onclick=()=>pickDate(key,d,dt);
+    g.appendChild(el);
+  }
+  const total=first+dim;
+  const rem=total%7===0?0:7-(total%7);
+  for(let i=1;i<=rem;i++){const el=document.createElement('div');el.className='cal-day-cell dim';el.textContent=i;g.appendChild(el);}
+}
+
+function pickDate(key,d,dt){
+  selKey=key; selSlot=null;
+  renderCal();
+  const ds=dt.toLocaleDateString('en-PH',{month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('sum-date').textContent=ds;
+  document.getElementById('sum-date').style.color='#fff';
+  document.getElementById('sum-date').style.fontStyle='normal';
+  document.getElementById('sum-time').textContent='—';
+  document.getElementById('slotsDateTxt').textContent=dt.toLocaleDateString('en-PH',{month:'long',day:'numeric'});
+  const wrap=document.getElementById('slotsWrap');
+  wrap.innerHTML='';
+  getSlots(key).forEach(slot=>{
+    const btn=document.createElement('button');
+    btn.className='slot-pill'+(slot.ok?'':' unavail');
+    btn.textContent=slot.l;
+    btn.disabled=!slot.ok;
+    if(slot.ok){
+      btn.onclick=()=>{
+        document.querySelectorAll('.slot-pill').forEach(b=>b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selSlot=slot.l;
+        document.getElementById('sum-time').textContent=slot.l;
+        document.getElementById('sum-time').style.color='var(--mint)';
+      };
+    }
+    wrap.appendChild(btn);
+  });
+}
+
+function syncSummary(){
+  const topic=document.getElementById('inp-topic').value.trim();
+  const att=document.getElementById('inp-att').value||'1';
+  const te=document.getElementById('sum-topic');
+  te.innerHTML=topic?`<span style="font-weight:700;color:#fff">${topic}</span>`:`<span style="color:rgba(255,255,255,.35);font-style:italic">Not set</span>`;
+  document.getElementById('sum-att').textContent=att+(att==='1'?' person':' persons');
+}
+
+function toggleCollab(){
+  const details=document.getElementById('collabDetails');
+  details.classList.toggle('show');
+}
+
+function doConfirm(){
+  if(!selServiceType){alert('Please select a service type.');return;}
+  if(!selKey||!selSlot){alert('Please select a date and time slot.');return;}
+  const btn=document.getElementById('btnConfirm');
+  btn.textContent='✓ Request Submitted!';
+  btn.style.background='#3d7030';
+  btn.disabled=true;
+  document.getElementById('sum-status').textContent='Pending Approval';
+  document.querySelector('.confirm-note').textContent="We'll email you a confirmation within 24 hours. Thank you!";
+}
+
+document.addEventListener('DOMContentLoaded',calInit);
+</script>
+<script>
+(function(){
+  var page = window.location.pathname.split('/').pop() || 'index.html';
+  var map = {'index.html':'nav-home','services.html':'nav-services','about.html':'nav-about','shop.html':'nav-shop','workshops.html':'nav-workshops','consultation.html':'nav-consultation'};
+  var id = map[page];
+  if(id){ var el=document.getElementById(id); if(el){ el.classList.add('active'); }}
+})();
+</script>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><span class="wordmark"><span class="b">BAHAY</span>TEK</span><p>Bahay Teknik — Research, Product Development &amp; Community Training. Based in Camarines Norte, Bicol, Philippines.</p></div>
+    <div class="footer-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="consultation.html">Consultation</a></li></ul></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="shop.html">Solar Products</a></li><li><a href="shop.html">Water Systems</a></li><li><a href="shop.html">Biogas Kits</a></li><li><a href="workshops.html">Workshops</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li>📍 Camarines Norte, Bicol</li><li>📧 info@bahaytek.ph</li><li>📞 +63 XXX XXX XXXX</li><li><a href="consultation.html">Book a Session</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Bahay Teknik. BSIT 2A IPT Project. All rights reserved.</p>
+    <p style="color:rgba(255,255,255,.16);">Built with 🌿 in the Philippines</p>
+  </div>
+</footer>
+</body>
+</html>
