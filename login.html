@@ -15,33 +15,29 @@
   var RC_SITE_KEY = '6LeDVu4sAAAAANFwYd3SggZGOZIQgdiL-2gtVnCp';
   window.onRecaptchaLoad = function() {
     window.rcLogin = grecaptcha.render('rcLogin', { sitekey: RC_SITE_KEY });
-    // rcReg is rendered lazily when register tab opens — panel must be visible first
   };
 </script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 <style>
 :root{
-  --forest:#336a29; --green:#498428; --emerald:#80b155; --mint:#c1d95c;
-  --cream:#f5f9f0; --sand:#edf5e3; --gold:#b68a3b; --gold-lt:#fef3c7;
-  --dark:#1a2e12; --charcoal:#2e4a1e; --gray:#5a7248; --border:#c8ddb0;
-  --red:#dc2626; --red-lt:#fee2e2; --blue:#1d4ed8; --purple:#6d28d9;
-  --white:#ffffff;
-  --sh-sm:0 2px 8px rgba(51,106,41,.07);
-  --sh-md:0 8px 24px rgba(51,106,41,.11);
-  --sh-lg:0 20px 48px rgba(51,106,41,.15);
+  --forest:#336a29;--green:#498428;--emerald:#80b155;--mint:#c1d95c;
+  --cream:#f5f9f0;--sand:#edf5e3;--gold:#b68a3b;
+  --dark:#1a2e12;--charcoal:#2e4a1e;--gray:#5a7248;--border:#c8ddb0;
+  --red:#dc2626;--red-lt:#fee2e2;--white:#ffffff;
+  --sh-lg:0 24px 64px rgba(51,106,41,.18);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh;display:flex;flex-direction:column}
 
 /* ══ NAV ══ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(51,106,41,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(193,217,92,.15);height:62px;display:flex;align-items:center;padding:0 52px;justify-content:space-between;transition:background .3s;line-height:1}
-.nav-logo{text-decoration:none;display:flex;flex-direction:column;line-height:1;flex-shrink:0;height:62px;align-items:center;justify-content:center}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(51,106,41,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(193,217,92,.15);height:62px;display:flex;align-items:center;padding:0 52px;justify-content:space-between}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;line-height:1;height:62px;align-items:center;justify-content:center}
 .nav-logo .brand{font-family:'DM Serif Display',serif;font-size:1.15rem;color:#fff}
 .nav-logo .brand .b{color:var(--mint)}
 .nav-logo .sub{font-size:.5rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(193,217,92,.7);margin-top:2px}
-.nav-links{display:flex;gap:28px;flex-wrap:nowrap;flex-shrink:0}
-.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s;position:relative;padding-bottom:2px;outline:none;white-space:nowrap}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s;position:relative;padding-bottom:2px;white-space:nowrap}
 .nav-links a::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1.5px;background:var(--mint);transform:scaleX(0);transition:transform .25s;transform-origin:left}
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{transform:scaleX(1)}
@@ -49,60 +45,83 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .btn-nav-outline:hover{border-color:var(--mint);background:rgba(193,217,92,.1)}
 .btn-nav-solid{padding:7px 18px;border-radius:8px;font-size:.78rem;font-weight:700;background:var(--mint);color:var(--forest);border:none;cursor:pointer;font-family:inherit;transition:all .2s;text-decoration:none;display:flex;align-items:center}
 .btn-nav-solid:hover{background:#eaf59d}
-.nav-actions{display:flex;gap:8px;align-items:center;flex-shrink:0;height:62px;justify-content:center}
+.nav-actions{display:flex;gap:8px;align-items:center;height:62px}
 
-/* ══ PAGE BACKGROUND ══ */
-.page-bg{flex:1;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+/* ══ PAGE ══ */
+.page-bg{flex:1;display:flex;align-items:center;justify-content:center;padding:82px 20px 48px;position:relative;overflow:hidden;min-height:100vh}
 .page-bg::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(ellipse 80% 60% at 20% 40%, rgba(51,106,41,.06) 0%, transparent 60%),
-  radial-gradient(ellipse 60% 50% at 80% 70%, rgba(128,177,85,.05) 0%, transparent 55%),
-  linear-gradient(160deg,#f5f9f0 0%,#edf5e3 50%,#f0f7e8 100%);
-  z-index:0}
-.page-bg>*{position:relative;z-index:1}
+  radial-gradient(ellipse 70% 60% at 15% 50%,rgba(51,106,41,.07) 0%,transparent 60%),
+  radial-gradient(ellipse 50% 50% at 85% 60%,rgba(128,177,85,.05) 0%,transparent 55%),
+  linear-gradient(155deg,#edf5e3 0%,#f5f9f0 50%,#edf5e3 100%)}
 
-/* ══ AUTH CARD ══ */
-.auth-card{background:var(--white);border-radius:20px;box-shadow:var(--sh-lg);border:1px solid var(--border);width:100%;max-width:440px;overflow:hidden}
+/* ══ AUTH CARD — split layout ══ */
+.auth-card{display:flex;width:100%;max-width:780px;border-radius:24px;box-shadow:var(--sh-lg);overflow:hidden;border:1px solid var(--border);position:relative;z-index:1}
 
-/* Brand header inside card */
-.auth-header{background:linear-gradient(135deg,var(--forest) 0%,var(--charcoal) 100%);padding:32px 36px 28px;text-align:center}
-.auth-header .wordmark{font-family:'DM Serif Display',serif;font-size:1.5rem;color:#fff;letter-spacing:.5px}
-.auth-header .wordmark .b{color:var(--mint)}
-.auth-header p{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:6px;font-weight:400}
+/* Left decorative panel */
+.auth-left{width:272px;flex-shrink:0;background:linear-gradient(160deg,#1e4d18 0%,#2a6622 40%,#336a29 70%,#3d7a31 100%);padding:40px 28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.auth-left::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 50% at 80% 20%,rgba(193,217,92,.08) 0%,transparent 60%),
+  radial-gradient(ellipse 60% 60% at 20% 80%,rgba(74,222,128,.06) 0%,transparent 55%)}
+.auth-left-top{position:relative;z-index:1}
+.al-wordmark{font-family:'DM Serif Display',serif;font-size:1.6rem;color:#fff;letter-spacing:.5px;line-height:1}
+.al-wordmark .b{color:var(--mint)}
+.al-sub{font-size:.55rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(193,217,92,.6);margin-top:4px;display:block}
+.al-tagline{margin-top:28px;font-size:1rem;font-weight:700;color:#fff;line-height:1.45;letter-spacing:-.01em}
+.al-tagline em{color:var(--mint);font-style:normal}
+.al-desc{margin-top:10px;font-size:.75rem;color:rgba(255,255,255,.55);line-height:1.6}
+.al-features{margin-top:22px;display:flex;flex-direction:column;gap:9px}
+.al-feat{display:flex;align-items:center;gap:9px;font-size:.74rem;color:rgba(255,255,255,.75);font-weight:500}
+.al-feat-dot{width:18px;height:18px;border-radius:50%;background:rgba(193,217,92,.18);border:1.5px solid rgba(193,217,92,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.al-feat-dot svg{width:9px;height:9px}
+.auth-left-bottom{position:relative;z-index:1}
+.al-svg{width:100%;opacity:.18;margin-bottom:8px}
+.al-copy{font-size:.64rem;color:rgba(255,255,255,.3);font-weight:500}
+
+/* Right form panel */
+.auth-right{flex:1;background:var(--white);display:flex;flex-direction:column;min-width:0}
 
 /* Tabs */
-.auth-tabs{display:flex;border-bottom:1px solid var(--border)}
-.auth-tab{flex:1;padding:14px;font-size:.82rem;font-weight:600;color:var(--gray);background:none;border:none;cursor:pointer;font-family:inherit;transition:all .2s;border-bottom:2.5px solid transparent;margin-bottom:-1px}
+.auth-tabs{display:flex;padding:0 32px;border-bottom:1px solid var(--border);gap:4px;background:var(--white)}
+.auth-tab{padding:18px 20px 16px;font-size:.82rem;font-weight:600;color:var(--gray);background:none;border:none;cursor:pointer;font-family:inherit;transition:all .2s;border-bottom:2.5px solid transparent;margin-bottom:-1px;white-space:nowrap}
 .auth-tab.active{color:var(--forest);border-bottom-color:var(--forest)}
-.auth-tab:hover:not(.active){color:var(--dark);background:var(--sand)}
+.auth-tab:hover:not(.active){color:var(--dark)}
 
 /* Body */
-.auth-body{padding:28px 36px 32px}
+.auth-body{padding:28px 32px 32px;flex:1}
 
 /* Tab panels */
 .tab-panel{display:none}
 .tab-panel.active{display:block}
 
-/* OAuth buttons */
-.oauth-row{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
-.oauth-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:11px 16px;border-radius:10px;font-size:.83rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;border:1.5px solid var(--border);background:var(--white);color:var(--dark)}
-.oauth-btn:hover{border-color:var(--forest);background:var(--sand)}
-.oauth-btn svg{width:18px;height:18px;flex-shrink:0}
+/* Welcome line */
+.auth-welcome{font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.auth-welcome-sub{font-size:.78rem;color:var(--gray);margin-bottom:22px}
+
+/* OAuth buttons — side by side */
+.oauth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.oauth-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px 12px;border-radius:10px;font-size:.78rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;border:1.5px solid var(--border);background:var(--white);color:var(--dark);white-space:nowrap}
+.oauth-btn svg{width:17px;height:17px;flex-shrink:0}
 .oauth-btn.google-btn{border-color:#dadce0}
 .oauth-btn.google-btn:hover{border-color:#4285F4;background:#f8faff}
 .oauth-btn.facebook-btn{border-color:#1877F2;background:#1877F2;color:#fff}
 .oauth-btn.facebook-btn:hover{background:#166fe5;border-color:#166fe5}
 
 /* Divider */
-.divider{display:flex;align-items:center;gap:12px;margin-bottom:20px;color:var(--gray);font-size:.75rem;font-weight:500}
+.divider{display:flex;align-items:center;gap:10px;margin-bottom:18px;color:var(--gray);font-size:.72rem;font-weight:500}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
 
+/* Alert */
+.alert{padding:10px 14px;border-radius:9px;font-size:.78rem;font-weight:500;margin-bottom:14px;display:none;line-height:1.4}
+.alert.show{display:flex;align-items:flex-start;gap:8px}
+.alert.error{background:var(--red-lt);color:var(--red);border:1px solid #fca5a5}
+.alert.success{background:#dcfce7;color:#166534;border:1px solid #86efac}
+
 /* Form fields */
-.field-row{display:flex;gap:12px}
-.field{margin-bottom:14px;flex:1}
-.field label{display:block;font-size:.78rem;font-weight:600;color:var(--charcoal);margin-bottom:5px}
-.field input{width:100%;padding:10px 13px;border-radius:9px;border:1.5px solid var(--border);font-size:.84rem;font-family:inherit;color:var(--dark);background:var(--cream);transition:border-color .2s,box-shadow .2s;outline:none}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:.75rem;font-weight:600;color:var(--charcoal);margin-bottom:5px;letter-spacing:.01em}
+.field input{width:100%;padding:10px 13px;border-radius:9px;border:1.5px solid var(--border);font-size:.83rem;font-family:inherit;color:var(--dark);background:#fafcf8;transition:border-color .2s,box-shadow .2s;outline:none}
 .field input:focus{border-color:var(--forest);box-shadow:0 0 0 3px rgba(51,106,41,.1);background:#fff}
-.field input.error{border-color:var(--red)}
 
 /* Password wrapper */
 .pw-wrap{position:relative}
@@ -110,57 +129,58 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .pw-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--gray);padding:2px;display:flex;align-items:center;transition:color .2s}
 .pw-toggle:hover{color:var(--dark)}
 
-/* Forgot */
-.forgot-row{display:flex;justify-content:flex-end;margin-top:-6px;margin-bottom:16px}
-.forgot-link{font-size:.74rem;color:var(--gray);text-decoration:none;font-weight:500}
-.forgot-link:hover{color:var(--forest)}
+/* Forgot + reCAPTCHA row */
+.form-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.forgot-link{font-size:.73rem;color:var(--gray);text-decoration:none;font-weight:500;white-space:nowrap;padding-top:2px}
+.forgot-link:hover{color:var(--forest);text-decoration:underline}
 
-/* Submit btn */
-.btn-submit{width:100%;padding:12px;border-radius:10px;background:var(--forest);color:#fff;border:none;font-size:.88rem;font-weight:700;font-family:inherit;cursor:pointer;transition:all .2s;margin-top:4px}
+/* reCAPTCHA */
+.recaptcha-wrap{transform:scale(.82);transform-origin:left top;height:60px;margin-bottom:-6px}
+
+/* Submit */
+.btn-submit{width:100%;padding:12px;border-radius:10px;background:var(--forest);color:#fff;border:none;font-size:.88rem;font-weight:700;font-family:inherit;cursor:pointer;transition:all .2s;letter-spacing:.01em}
 .btn-submit:hover{background:var(--green)}
 .btn-submit:disabled{opacity:.6;cursor:not-allowed}
 
-/* Alert */
-.alert{padding:10px 14px;border-radius:9px;font-size:.8rem;font-weight:500;margin-bottom:14px;display:none}
-.alert.show{display:block}
-.alert.error{background:var(--red-lt);color:var(--red);border:1px solid #fca5a5}
-.alert.success{background:#dcfce7;color:#166534;border:1px solid #86efac}
-
-/* Switch link */
-.switch-row{text-align:center;margin-top:18px;font-size:.78rem;color:var(--gray)}
+/* Switch / terms */
+.switch-row{text-align:center;margin-top:16px;font-size:.76rem;color:var(--gray)}
 .switch-row a{color:var(--forest);font-weight:600;text-decoration:none}
 .switch-row a:hover{text-decoration:underline}
-
-/* Terms */
-.terms-note{font-size:.72rem;color:var(--gray);text-align:center;margin-top:12px;line-height:1.5}
+.terms-note{font-size:.7rem;color:var(--gray);text-align:center;margin-top:10px;line-height:1.55}
 .terms-note a{color:var(--forest)}
 
-/* Logged-in state */
-.user-card{display:none;text-align:center;padding:20px 0}
-.user-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 12px;border:3px solid var(--mint);display:block}
-.user-avatar-placeholder{width:64px;height:64px;border-radius:50%;background:var(--forest);color:#fff;font-size:1.4rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;border:3px solid var(--mint)}
-.user-name{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:2px}
-.user-email{font-size:.78rem;color:var(--gray);margin-bottom:18px}
-.btn-go-home{display:inline-block;padding:10px 24px;background:var(--forest);color:#fff;border-radius:10px;font-size:.84rem;font-weight:600;text-decoration:none;transition:background .2s}
-.btn-go-home:hover{background:var(--green)}
-.btn-logout{display:inline-block;margin-top:10px;padding:8px 20px;background:transparent;color:var(--gray);border:1.5px solid var(--border);border-radius:10px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-logout:hover{border-color:var(--red);color:var(--red)}
-
 /* Spinner */
-.spinner{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+.spinner{display:inline-block;width:15px;height:15px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* reCAPTCHA */
-.recaptcha-wrap{display:flex;justify-content:center;margin:14px 0 6px}
-@media(max-width:380px){.recaptcha-wrap{transform:scale(.85);transform-origin:left center;margin-left:4px}}
+/* Logged-in card */
+.user-card{text-align:center;padding:32px 20px}
+.user-avatar-placeholder{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--forest),var(--green));color:#fff;font-size:1.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:3px solid var(--mint);box-shadow:0 4px 16px rgba(51,106,41,.2)}
+.user-name{font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:3px}
+.user-email{font-size:.77rem;color:var(--gray);margin-bottom:22px}
+.btn-go-home{display:inline-block;padding:11px 28px;background:var(--forest);color:#fff;border-radius:10px;font-size:.84rem;font-weight:600;text-decoration:none;transition:background .2s}
+.btn-go-home:hover{background:var(--green)}
+.btn-logout{display:inline-block;margin-top:10px;padding:8px 22px;background:transparent;color:var(--gray);border:1.5px solid var(--border);border-radius:10px;font-size:.76rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-logout:hover{border-color:var(--red);color:var(--red)}
 
-/* Responsive */
-@media(max-width:480px){
-  .nav{padding:0 20px}
+/* ══ RESPONSIVE ══ */
+@media(max-width:640px){
+  .nav{padding:0 18px}
   .nav-links{display:none}
-  .auth-body{padding:24px 22px 28px}
-  .auth-header{padding:24px 22px 20px}
-  .field-row{flex-direction:column;gap:0}
+  .auth-card{flex-direction:column;max-width:420px;border-radius:20px}
+  .auth-left{width:100%;padding:28px 24px 20px;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}
+  .auth-left-bottom{display:none}
+  .al-tagline,.al-desc,.al-features{display:none}
+  .al-wordmark{font-size:1.3rem}
+  .auth-tabs{padding:0 22px}
+  .auth-body{padding:22px 22px 26px}
+  .oauth-row{grid-template-columns:1fr 1fr}
+  .field-row{grid-template-columns:1fr}
+  .form-meta{flex-direction:column;gap:8px}
+  .recaptcha-wrap{transform:scale(.75);transform-origin:left top;height:56px}
+}
+@media(max-width:380px){
+  .oauth-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -190,142 +210,184 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 <div class="page-bg">
   <div class="auth-card">
 
-    <!-- Header -->
-    <div class="auth-header">
-      <div class="wordmark"><span class="b">BAHAY</span>TEK</div>
-      <p id="headerSub">Sign in to your account</p>
-    </div>
-
-    <!-- Logged-in state (shown after auth) -->
-    <div class="auth-body" id="loggedInView" style="display:none">
-      <div class="user-card" id="userCard" style="display:block">
-        <div class="user-avatar-placeholder" id="userAvatarPlaceholder"></div>
-        <div class="user-name" id="userName"></div>
-        <div class="user-email" id="userEmail"></div>
-        <a href="index.html" class="btn-go-home">Go to Homepage</a><br/>
-        <button class="btn-logout" onclick="logout()">Log Out</button>
+    <!-- ── LEFT PANEL ── -->
+    <div class="auth-left">
+      <div class="auth-left-top">
+        <div class="al-wordmark"><span class="b">BAHAY</span>TEK</div>
+        <span class="al-sub">Bahay Teknik</span>
+        <div class="al-tagline">Where <em>Ideas</em> Become<br/>Real Solutions</div>
+        <p class="al-desc">Sustainable technology for agriculture, energy, and community — built in the Philippines.</p>
+        <div class="al-features">
+          <div class="al-feat">
+            <div class="al-feat-dot"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#c1d95c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Solar &amp; Renewable Energy
+          </div>
+          <div class="al-feat">
+            <div class="al-feat-dot"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#c1d95c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Biogas &amp; Clean Cooking
+          </div>
+          <div class="al-feat">
+            <div class="al-feat-dot"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#c1d95c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Agricultural Innovation
+          </div>
+          <div class="al-feat">
+            <div class="al-feat-dot"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#c1d95c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Community Workshops
+          </div>
+        </div>
+      </div>
+      <div class="auth-left-bottom">
+        <svg class="al-svg" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="110" cy="100" rx="90" ry="18" fill="#4ade80" opacity=".12"/>
+          <path d="M110 95 C110 95 85 70 85 45 C85 20 110 8 110 8 C110 8 135 20 135 45 C135 70 110 95 110 95Z" fill="#4ade80" opacity=".25"/>
+          <path d="M110 95 C110 95 75 80 60 55 C45 30 65 10 110 8" fill="none" stroke="#6ee7b7" stroke-width="1.5" opacity=".3"/>
+          <path d="M110 95 C110 95 145 80 160 55 C175 30 155 10 110 8" fill="none" stroke="#6ee7b7" stroke-width="1.5" opacity=".3"/>
+          <line x1="110" y1="8" x2="110" y2="95" stroke="#86efac" stroke-width="1" opacity=".35" stroke-dasharray="3 4"/>
+          <circle cx="110" cy="8" r="4" fill="#c1d95c" opacity=".5"/>
+          <circle cx="85" cy="45" r="3" fill="#4ade80" opacity=".35"/>
+          <circle cx="135" cy="45" r="3" fill="#4ade80" opacity=".35"/>
+        </svg>
+        <p class="al-copy">© 2025 Bahay Teknik · Bicol, PH</p>
       </div>
     </div>
 
-    <!-- Auth forms (shown when not logged in) -->
-    <div id="authView">
-      <!-- Tabs -->
-      <div class="auth-tabs">
-        <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Log In</button>
-        <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Sign Up</button>
+    <!-- ── RIGHT PANEL ── -->
+    <div class="auth-right">
+
+      <!-- Logged-in view -->
+      <div id="loggedInView" style="display:none;flex:1">
+        <div class="user-card">
+          <div class="user-avatar-placeholder" id="userAvatarPlaceholder"></div>
+          <div class="user-name" id="userName"></div>
+          <div class="user-email" id="userEmail"></div>
+          <a href="index.html" class="btn-go-home">Go to Homepage</a><br/>
+          <button class="btn-logout" onclick="logout()">Log Out</button>
+        </div>
       </div>
 
-      <div class="auth-body">
-
-        <!-- ── LOGIN PANEL ── -->
-        <div class="tab-panel active" id="panelLogin">
-          <div class="oauth-row">
-            <button class="oauth-btn google-btn" onclick="oauthLogin('google')">
-              <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.6 33 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 19 13 24 13c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36.5 24 36.5c-5.3 0-9.6-3-11.3-7.5l-6.5 5C9.6 39.7 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.9 2.5-2.6 4.6-4.9 6l6.2 5.2C42 35.2 44 30 44 24c0-1.2-.1-2.4-.4-3.5z"/></svg>
-              Continue with Google
-            </button>
-            <button class="oauth-btn facebook-btn" onclick="oauthLogin('facebook')">
-              <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.62 23.1 24 18.1 24 12.07z"/></svg>
-              Continue with Facebook
-            </button>
-          </div>
-
-          <div class="divider">or sign in with email</div>
-
-          <div class="alert" id="loginAlert"></div>
-
-          <form id="loginForm" onsubmit="handleLogin(event)">
-            <div class="field">
-              <label>Email address</label>
-              <input type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email"/>
-            </div>
-            <div class="field">
-              <label>Password</label>
-              <div class="pw-wrap">
-                <input type="password" id="loginPassword" placeholder="Your password" required autocomplete="current-password"/>
-                <button type="button" class="pw-toggle" onclick="togglePw('loginPassword',this)" title="Show/hide password">
-                  <svg id="eyeLoginOpen" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  <svg id="eyeLoginClosed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="forgot-row"><a href="#" class="forgot-link">Forgot password?</a></div>
-            <div class="recaptcha-wrap"><div id="rcLogin"></div></div>
-            <button type="submit" class="btn-submit" id="loginBtn">Log In</button>
-          </form>
-
-          <div class="switch-row">Don't have an account? <a href="#" onclick="switchTab('register');return false">Sign up</a></div>
+      <!-- Auth view -->
+      <div id="authView" style="display:flex;flex-direction:column;flex:1">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Log In</button>
+          <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Sign Up</button>
         </div>
 
-        <!-- ── REGISTER PANEL ── -->
-        <div class="tab-panel" id="panelRegister">
-          <div class="oauth-row">
-            <button class="oauth-btn google-btn" onclick="oauthLogin('google')">
-              <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.6 33 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 19 13 24 13c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36.5 24 36.5c-5.3 0-9.6-3-11.3-7.5l-6.5 5C9.6 39.7 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.9 2.5-2.6 4.6-4.9 6l6.2 5.2C42 35.2 44 30 44 24c0-1.2-.1-2.4-.4-3.5z"/></svg>
-              Sign up with Google
-            </button>
-            <button class="oauth-btn facebook-btn" onclick="oauthLogin('facebook')">
-              <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.62 23.1 24 18.1 24 12.07z"/></svg>
-              Sign up with Facebook
-            </button>
+        <div class="auth-body">
+
+          <!-- ── LOGIN ── -->
+          <div class="tab-panel active" id="panelLogin">
+            <div class="auth-welcome">Welcome back</div>
+            <div class="auth-welcome-sub">Sign in to your BAHAYTEK account</div>
+
+            <div class="oauth-row">
+              <button class="oauth-btn google-btn" onclick="oauthLogin('google')">
+                <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.6 33 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 19 13 24 13c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36.5 24 36.5c-5.3 0-9.6-3-11.3-7.5l-6.5 5C9.6 39.7 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.9 2.5-2.6 4.6-4.9 6l6.2 5.2C42 35.2 44 30 44 24c0-1.2-.1-2.4-.4-3.5z"/></svg>
+                Google
+              </button>
+              <button class="oauth-btn facebook-btn" onclick="oauthLogin('facebook')">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.62 23.1 24 18.1 24 12.07z"/></svg>
+                Facebook
+              </button>
+            </div>
+
+            <div class="divider">or continue with email</div>
+            <div class="alert" id="loginAlert"></div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+              <div class="field">
+                <label>Email address</label>
+                <input type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email"/>
+              </div>
+              <div class="field">
+                <label>Password</label>
+                <div class="pw-wrap">
+                  <input type="password" id="loginPassword" placeholder="Your password" required autocomplete="current-password"/>
+                  <button type="button" class="pw-toggle" onclick="togglePw('loginPassword',this)">
+                    <svg id="eyeLoginOpen" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg id="eyeLoginClosed" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="form-meta">
+                <div class="recaptcha-wrap"><div id="rcLogin"></div></div>
+                <a href="#" class="forgot-link">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn-submit" id="loginBtn">Log In</button>
+            </form>
+
+            <div class="switch-row">No account yet? <a href="#" onclick="switchTab('register');return false">Sign up free</a></div>
           </div>
 
-          <div class="divider">or create an account</div>
+          <!-- ── REGISTER ── -->
+          <div class="tab-panel" id="panelRegister">
+            <div class="auth-welcome">Create your account</div>
+            <div class="auth-welcome-sub">Join the BAHAYTEK community</div>
 
-          <div class="alert" id="registerAlert"></div>
+            <div class="oauth-row">
+              <button class="oauth-btn google-btn" onclick="oauthLogin('google')">
+                <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.6 33 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 19 13 24 13c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36.5 24 36.5c-5.3 0-9.6-3-11.3-7.5l-6.5 5C9.6 39.7 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.9 2.5-2.6 4.6-4.9 6l6.2 5.2C42 35.2 44 30 44 24c0-1.2-.1-2.4-.4-3.5z"/></svg>
+                Google
+              </button>
+              <button class="oauth-btn facebook-btn" onclick="oauthLogin('facebook')">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.62 23.1 24 18.1 24 12.07z"/></svg>
+                Facebook
+              </button>
+            </div>
 
-          <form id="registerForm" onsubmit="handleRegister(event)">
-            <div class="field-row">
-              <div class="field">
-                <label>First Name</label>
-                <input type="text" id="regFirst" placeholder="Juan" required autocomplete="given-name"/>
+            <div class="divider">or sign up with email</div>
+            <div class="alert" id="registerAlert"></div>
+
+            <form id="registerForm" onsubmit="handleRegister(event)">
+              <div class="field-row">
+                <div class="field">
+                  <label>First Name</label>
+                  <input type="text" id="regFirst" placeholder="Juan" required autocomplete="given-name"/>
+                </div>
+                <div class="field">
+                  <label>Last Name</label>
+                  <input type="text" id="regLast" placeholder="dela Cruz" required autocomplete="family-name"/>
+                </div>
               </div>
               <div class="field">
-                <label>Last Name</label>
-                <input type="text" id="regLast" placeholder="dela Cruz" required autocomplete="family-name"/>
+                <label>Email address</label>
+                <input type="email" id="regEmail" placeholder="you@example.com" required autocomplete="email"/>
               </div>
-            </div>
-            <div class="field">
-              <label>Email address</label>
-              <input type="email" id="regEmail" placeholder="you@example.com" required autocomplete="email"/>
-            </div>
-            <div class="field">
-              <label>Password <span style="color:var(--gray);font-weight:400">(min. 6 chars)</span></label>
-              <div class="pw-wrap">
-                <input type="password" id="regPassword" placeholder="Create a password" required autocomplete="new-password"/>
-                <button type="button" class="pw-toggle" onclick="togglePw('regPassword',this)" title="Show/hide password">
-                  <svg id="eyeRegOpen" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  <svg id="eyeRegClosed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                </button>
+              <div class="field">
+                <label>Password <span style="color:var(--gray);font-weight:400;font-size:.72rem">(min. 6 characters)</span></label>
+                <div class="pw-wrap">
+                  <input type="password" id="regPassword" placeholder="Create a password" required autocomplete="new-password"/>
+                  <button type="button" class="pw-toggle" onclick="togglePw('regPassword',this)">
+                    <svg id="eyeRegOpen" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg id="eyeRegClosed" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="recaptcha-wrap"><div id="rcReg"></div></div>
-            <button type="submit" class="btn-submit" id="registerBtn">Create Account</button>
-          </form>
+              <div class="form-meta">
+                <div class="recaptcha-wrap"><div id="rcReg"></div></div>
+              </div>
+              <button type="submit" class="btn-submit" id="registerBtn">Create Account</button>
+            </form>
 
-          <p class="terms-note">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-          <div class="switch-row">Already have an account? <a href="#" onclick="switchTab('login');return false">Log in</a></div>
-        </div>
+            <p class="terms-note">By creating an account you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            <div class="switch-row">Already have an account? <a href="#" onclick="switchTab('login');return false">Log in</a></div>
+          </div>
 
-      </div><!-- /auth-body -->
-    </div><!-- /authView -->
+        </div><!-- /auth-body -->
+      </div><!-- /authView -->
 
+    </div><!-- /auth-right -->
   </div><!-- /auth-card -->
 </div><!-- /page-bg -->
 
 <script>
 const API = '/api/auth';
 
-/* ── Helpers ─────────────────────────────────────────────── */
 function showAlert(id, msg, type) {
   const el = document.getElementById(id);
   el.textContent = msg;
   el.className = `alert show ${type}`;
 }
-function hideAlert(id) {
-  const el = document.getElementById(id);
-  el.className = 'alert';
-}
+function hideAlert(id) { document.getElementById(id).className = 'alert'; }
 function setLoading(btnId, loading, label) {
   const btn = document.getElementById(btnId);
   btn.disabled = loading;
@@ -336,8 +398,8 @@ function togglePw(inputId, btn) {
   const isText = input.type === 'text';
   input.type = isText ? 'password' : 'text';
   const prefix = inputId === 'loginPassword' ? 'eyeLogin' : 'eyeReg';
-  document.getElementById(prefix + 'Open').style.display   = isText ? '' : 'none';
-  document.getElementById(prefix + 'Closed').style.display = isText ? 'none' : '';
+  document.getElementById(prefix+'Open').style.display   = isText ? '' : 'none';
+  document.getElementById(prefix+'Closed').style.display = isText ? 'none' : '';
 }
 function switchTab(tab) {
   const isLogin = tab === 'login';
@@ -345,16 +407,13 @@ function switchTab(tab) {
   document.getElementById('tabRegister').classList.toggle('active', !isLogin);
   document.getElementById('panelLogin').classList.toggle('active', isLogin);
   document.getElementById('panelRegister').classList.toggle('active', !isLogin);
-  document.getElementById('headerSub').textContent = isLogin ? 'Sign in to your account' : 'Create your free account';
   hideAlert('loginAlert');
   hideAlert('registerAlert');
-  // Render register captcha lazily now that its panel is visible
   if (!isLogin && window.rcReg === undefined && typeof grecaptcha !== 'undefined') {
     window.rcReg = grecaptcha.render('rcReg', { sitekey: RC_SITE_KEY });
   }
 }
 
-/* ── Save / restore token ─────────────────────────────────── */
 function saveSession(data) {
   localStorage.setItem('bt_token', data.token);
   localStorage.setItem('bt_user',  JSON.stringify(data.user));
@@ -363,48 +422,29 @@ function clearSession() {
   localStorage.removeItem('bt_token');
   localStorage.removeItem('bt_user');
 }
-function getUser() {
-  try { return JSON.parse(localStorage.getItem('bt_user')); } catch { return null; }
-}
+function getUser() { try { return JSON.parse(localStorage.getItem('bt_user')); } catch { return null; } }
 
-/* ── Show logged-in state ─────────────────────────────────── */
 function showLoggedIn(user) {
-  document.getElementById('authView').style.display   = 'none';
-  document.getElementById('loggedInView').style.display = 'block';
+  document.getElementById('authView').style.display     = 'none';
+  document.getElementById('loggedInView').style.display = 'flex';
   document.getElementById('userName').textContent  = `${user.firstName} ${user.lastName}`;
   document.getElementById('userEmail').textContent = user.email;
-  const ph = document.getElementById('userAvatarPlaceholder');
-  ph.textContent = (user.firstName?.[0] || '?').toUpperCase();
-
-  /* Update nav to show user initial instead of auth buttons */
+  document.getElementById('userAvatarPlaceholder').textContent = (user.firstName?.[0] || '?').toUpperCase();
   const na = document.getElementById('navActions');
   na.innerHTML = `<span style="color:#fff;font-size:.8rem;font-weight:600;opacity:.85">${user.firstName}</span>
     <button onclick="logout()" class="btn-nav-outline" style="padding:7px 14px">Log Out</button>`;
 }
+function logout() { clearSession(); window.location.href = 'login.html'; }
 
-function logout() {
-  clearSession();
-  window.location.href = 'login.html';
-}
-
-/* ── OAuth ────────────────────────────────────────────────── */
-function activePanel() {
-  return document.getElementById('tabLogin').classList.contains('active') ? 'login' : 'register';
-}
-function activeCaptchaWidget() {
-  return activePanel() === 'login' ? window.rcLogin : window.rcReg;
-}
-function activeAlertId() {
-  return activePanel() === 'login' ? 'loginAlert' : 'registerAlert';
-}
+/* ── OAuth helpers ── */
+function activePanel()       { return document.getElementById('tabLogin').classList.contains('active') ? 'login' : 'register'; }
+function activeCaptchaWidget(){ return activePanel() === 'login' ? window.rcLogin : window.rcReg; }
+function activeAlertId()     { return activePanel() === 'login' ? 'loginAlert' : 'registerAlert'; }
 
 function oauthLogin(provider) {
   const alertId      = activeAlertId();
   const captchaToken = grecaptcha.getResponse(activeCaptchaWidget());
-  if (!captchaToken) {
-    showAlert(alertId, 'Please complete the reCAPTCHA first.', 'error');
-    return;
-  }
+  if (!captchaToken) { showAlert(alertId, 'Please complete the reCAPTCHA first.', 'error'); return; }
   if (provider === 'facebook') {
     FB.login(function(response) {
       if (response.authResponse) {
@@ -416,31 +456,22 @@ function oauthLogin(provider) {
     }, { scope: 'email,public_profile' });
     return;
   }
-  // Google — captcha verified client-side, proceed to OAuth redirect
   window.location.href = `${API}/${provider}`;
 }
 
 async function handleFacebookToken(accessToken, captchaToken) {
   try {
     const res  = await fetch(`${API}/facebook/token`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ accessToken, captchaToken }),
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body:   JSON.stringify({ accessToken, captchaToken }),
     });
     const data = await res.json();
-    if (!res.ok) {
-      showAlert(activeAlertId(), data.message || 'Facebook login failed', 'error');
-      grecaptcha.reset(activeCaptchaWidget());
-      return;
-    }
-    saveSession(data);
-    showLoggedIn(data.user);
-  } catch {
-    showAlert(activeAlertId(), 'Facebook login failed. Please try again.', 'error');
-  }
+    if (!res.ok) { showAlert(activeAlertId(), data.message || 'Facebook login failed', 'error'); grecaptcha.reset(activeCaptchaWidget()); return; }
+    saveSession(data); showLoggedIn(data.user);
+  } catch { showAlert(activeAlertId(), 'Facebook login failed. Please try again.', 'error'); }
 }
 
-/* ── Email / Password Login ───────────────────────────────── */
+/* ── Email login ── */
 async function handleLogin(e) {
   e.preventDefault();
   hideAlert('loginAlert');
@@ -449,98 +480,57 @@ async function handleLogin(e) {
   setLoading('loginBtn', true, 'Log In');
   try {
     const res  = await fetch(`${API}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email:    document.getElementById('loginEmail').value.trim(),
-        password: document.getElementById('loginPassword').value,
-        captchaToken,
-      }),
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body:   JSON.stringify({ email: document.getElementById('loginEmail').value.trim(), password: document.getElementById('loginPassword').value, captchaToken }),
     });
     const data = await res.json();
-    if (!res.ok) {
-      showAlert('loginAlert', data.message || 'Login failed', 'error');
-      grecaptcha.reset(window.rcLogin);
-      return;
-    }
-    saveSession(data);
-    showLoggedIn(data.user);
-  } catch {
-    showAlert('loginAlert', 'Cannot connect to server. Is the backend running?', 'error');
-    grecaptcha.reset(window.rcLogin);
-  } finally {
-    setLoading('loginBtn', false, 'Log In');
-  }
+    if (!res.ok) { showAlert('loginAlert', data.message || 'Login failed', 'error'); grecaptcha.reset(window.rcLogin); return; }
+    saveSession(data); showLoggedIn(data.user);
+  } catch { showAlert('loginAlert', 'Cannot connect to server.', 'error'); grecaptcha.reset(window.rcLogin); }
+  finally { setLoading('loginBtn', false, 'Log In'); }
 }
 
-/* ── Email / Password Register ────────────────────────────── */
+/* ── Email register ── */
 async function handleRegister(e) {
   e.preventDefault();
   hideAlert('registerAlert');
   const password = document.getElementById('regPassword').value;
-  if (password.length < 6) { showAlert('registerAlert', 'Password must be at least 6 characters', 'error'); return; }
+  if (password.length < 6) { showAlert('registerAlert', 'Password must be at least 6 characters.', 'error'); return; }
   const captchaToken = grecaptcha.getResponse(window.rcReg);
   if (!captchaToken) { showAlert('registerAlert', 'Please complete the reCAPTCHA.', 'error'); return; }
   setLoading('registerBtn', true, 'Create Account');
   try {
     const res  = await fetch(`${API}/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName: document.getElementById('regFirst').value.trim(),
-        lastName:  document.getElementById('regLast').value.trim(),
-        email:     document.getElementById('regEmail').value.trim(),
-        password,
-        captchaToken,
-      }),
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body:   JSON.stringify({ firstName: document.getElementById('regFirst').value.trim(), lastName: document.getElementById('regLast').value.trim(), email: document.getElementById('regEmail').value.trim(), password, captchaToken }),
     });
     const data = await res.json();
-    if (!res.ok) {
-      showAlert('registerAlert', data.message || 'Registration failed', 'error');
-      grecaptcha.reset(window.rcReg);
-      return;
-    }
-    saveSession(data);
-    showLoggedIn(data.user);
-  } catch {
-    showAlert('registerAlert', 'Cannot connect to server. Is the backend running?', 'error');
-    grecaptcha.reset(window.rcReg);
-  } finally {
-    setLoading('registerBtn', false, 'Create Account');
-  }
+    if (!res.ok) { showAlert('registerAlert', data.message || 'Registration failed', 'error'); grecaptcha.reset(window.rcReg); return; }
+    saveSession(data); showLoggedIn(data.user);
+  } catch { showAlert('registerAlert', 'Cannot connect to server.', 'error'); grecaptcha.reset(window.rcReg); }
+  finally { setLoading('registerBtn', false, 'Create Account'); }
 }
 
-/* ── Init: handle OAuth callback token in URL ─────────────── */
+/* ── Init ── */
 (function init() {
   const params = new URLSearchParams(window.location.search);
   const token  = params.get('token');
   const error  = params.get('error');
   const tab    = params.get('tab');
-
   if (token) {
-    /* OAuth callback — decode user from JWT payload */
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
       const user = { id: payload.id, email: payload.email, firstName: payload.firstName || payload.email.split('@')[0], lastName: payload.lastName || '' };
       saveSession({ token, user });
-      /* Clean URL */
       history.replaceState({}, '', 'login.html');
       showLoggedIn(user);
       return;
-    } catch { /* fall through to normal flow */ }
+    } catch {}
   }
-
-  if (error) {
-    showAlert('loginAlert', `OAuth sign-in failed (${error}). Please try again.`, 'error');
-  }
-
+  if (error) showAlert('loginAlert', `OAuth sign-in failed (${error}). Please try again.`, 'error');
   if (tab === 'register') switchTab('register');
-
-  /* Check existing session */
   const user = getUser();
-  if (user && localStorage.getItem('bt_token')) {
-    showLoggedIn(user);
-  }
+  if (user && localStorage.getItem('bt_token')) showLoggedIn(user);
 })();
 </script>
 </body>
