@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Shop â€” BAHAYTEK Product Catalog</title>
+<title>Shop — BAHAYTEK Product Catalog</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -230,14 +230,14 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
     <a href="consultation.html" id="nav-consultation">Consultation</a>
   </div>
   <div class="nav-actions">
-    <div class="cart-count" onclick="openCart()">ðŸ›’ <span id="cartCountNav">0 items</span></div>
+    <div class="cart-count" onclick="openCart()">🛒 <span id="cartCountNav">0 items</span></div>
     <a href="login.html" class="btn-nav-outline">Log In</a>
     <a href="login.html?tab=register" class="btn-nav-solid">Sign Up</a>
   </div>
 </nav>
 
 <div class="shop-hero">
-  <div class="hero-badge">ðŸŒ¿ In-House Products</div>
+  <div class="hero-badge">🌿 In-House Products</div>
   <h1>Product <em>Catalog</em></h1>
   <p>Developed and lab-tested at Bahay Teknik. Sustainable technology for everyday agricultural use.</p>
 </div>
@@ -252,31 +252,31 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
           <input type="checkbox" checked id="cat-all"><label for="cat-all">All Products <span class="filter-count">36</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Solar',this)">
-          <input type="checkbox" id="cat-solar"><label for="cat-solar">â˜€ï¸ Solar <span class="filter-count">5</span></label>
+          <input type="checkbox" id="cat-solar"><label for="cat-solar">☀️ Solar <span class="filter-count">5</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Water',this)">
-          <input type="checkbox" id="cat-water"><label for="cat-water">ðŸ’§ Water Systems <span class="filter-count">3</span></label>
+          <input type="checkbox" id="cat-water"><label for="cat-water">💧 Water Systems <span class="filter-count">3</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Biogas',this)">
-          <input type="checkbox" id="cat-biogas"><label for="cat-biogas">ðŸŒ¿ Biogas <span class="filter-count">2</span></label>
+          <input type="checkbox" id="cat-biogas"><label for="cat-biogas">🌿 Biogas <span class="filter-count">2</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Compost',this)">
-          <input type="checkbox" id="cat-compost"><label for="cat-compost">â™»ï¸ Waste Mgmt <span class="filter-count">1</span></label>
+          <input type="checkbox" id="cat-compost"><label for="cat-compost">♻️ Waste Mgmt <span class="filter-count">1</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Tools',this)">
-          <input type="checkbox" id="cat-tools"><label for="cat-tools">ðŸ”§ Tools <span class="filter-count">2</span></label>
+          <input type="checkbox" id="cat-tools"><label for="cat-tools">🔧 Tools <span class="filter-count">2</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Cooking',this)">
-          <input type="checkbox" id="cat-cooking"><label for="cat-cooking">ðŸ³ Cooking <span class="filter-count">7</span></label>
+          <input type="checkbox" id="cat-cooking"><label for="cat-cooking">🍳 Cooking <span class="filter-count">7</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Garden',this)">
-          <input type="checkbox" id="cat-garden"><label for="cat-garden">ðŸª´ Garden <span class="filter-count">4</span></label>
+          <input type="checkbox" id="cat-garden"><label for="cat-garden">🪴 Garden <span class="filter-count">4</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Kiln',this)">
-          <input type="checkbox" id="cat-kiln"><label for="cat-kiln">ðŸ§± Kilns <span class="filter-count">1</span></label>
+          <input type="checkbox" id="cat-kiln"><label for="cat-kiln">🧱 Kilns <span class="filter-count">1</span></label>
         </div>
         <div class="filter-option" onclick="filterCat('Fuel',this)">
-          <input type="checkbox" id="cat-fuel"><label for="cat-fuel">ðŸ”¥ Fuel <span class="filter-count">2</span></label>
+          <input type="checkbox" id="cat-fuel"><label for="cat-fuel">🔥 Fuel <span class="filter-count">2</span></label>
         </div>
       </div>
     </div>
@@ -292,9 +292,9 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
       <div class="sidebar-title">Price Range</div>
       <div class="price-range">
         <div class="price-inputs">
-          <input type="number" placeholder="â‚± Min" min="0"/>
-          <span class="price-sep">â€”</span>
-          <input type="number" placeholder="â‚± Max"/>
+          <input type="number" placeholder="₱ Min" min="0"/>
+          <span class="price-sep">—</span>
+          <input type="number" placeholder="₱ Max"/>
         </div>
       </div>
     </div>
@@ -304,7 +304,7 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
   <main class="shop-main">
     <div class="shop-toolbar">
       <div class="search-bar">
-        <span>ðŸ”</span>
+        <span>🔍</span>
         <input type="text" placeholder="Search products..." oninput="searchProducts(this.value)"/>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
@@ -313,22 +313,22 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
           <option value="newest">Sort: Newest</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
-          <option value="name">Name Aâ€“Z</option>
+          <option value="name">Name A–Z</option>
         </select>
       </div>
     </div>
 
     <div class="cat-tabs">
       <div class="cat-tab active" onclick="filterTabCat('All',this)">All Products</div>
-      <div class="cat-tab" onclick="filterTabCat('Solar',this)">â˜€ï¸ Solar</div>
-      <div class="cat-tab" onclick="filterTabCat('Water',this)">ðŸ’§ Water Systems</div>
-      <div class="cat-tab" onclick="filterTabCat('Biogas',this)">ðŸŒ¿ Biogas</div>
-      <div class="cat-tab" onclick="filterTabCat('Compost',this)">â™»ï¸ Waste Mgmt</div>
-      <div class="cat-tab" onclick="filterTabCat('Tools',this)">ðŸ”§ Tools</div>
-      <div class="cat-tab" onclick="filterTabCat('Cooking',this)">ðŸ³ Cooking</div>
-      <div class="cat-tab" onclick="filterTabCat('Garden',this)">ðŸª´ Garden</div>
-      <div class="cat-tab" onclick="filterTabCat('Kiln',this)">ðŸ§± Kilns</div>
-      <div class="cat-tab" onclick="filterTabCat('Fuel',this)">ðŸ”¥ Fuel</div>
+      <div class="cat-tab" onclick="filterTabCat('Solar',this)">☀️ Solar</div>
+      <div class="cat-tab" onclick="filterTabCat('Water',this)">💧 Water Systems</div>
+      <div class="cat-tab" onclick="filterTabCat('Biogas',this)">🌿 Biogas</div>
+      <div class="cat-tab" onclick="filterTabCat('Compost',this)">♻️ Waste Mgmt</div>
+      <div class="cat-tab" onclick="filterTabCat('Tools',this)">🔧 Tools</div>
+      <div class="cat-tab" onclick="filterTabCat('Cooking',this)">🍳 Cooking</div>
+      <div class="cat-tab" onclick="filterTabCat('Garden',this)">🪴 Garden</div>
+      <div class="cat-tab" onclick="filterTabCat('Kiln',this)">🧱 Kilns</div>
+      <div class="cat-tab" onclick="filterTabCat('Fuel',this)">🔥 Fuel</div>
     </div>
 
     <div class="product-grid" id="productGrid"></div>
@@ -339,18 +339,18 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 <div class="cart-panel" id="cartPanel">
   <div class="cart-header">
-    <h3>ðŸ›’ Your Cart</h3>
-    <button class="cart-close" onclick="closeCart()">âœ•</button>
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
   </div>
   <div class="cart-items" id="cartItems">
-    <div class="cart-empty"><div class="icon">ðŸ›’</div><div style="font-weight:700;margin-bottom:6px;">Your cart is empty</div><div style="font-size:.82rem;color:#aaa;">Add products to get started</div></div>
+    <div class="cart-empty"><div class="icon">🛒</div><div style="font-weight:700;margin-bottom:6px;">Your cart is empty</div><div style="font-size:.82rem;color:#aaa;">Add products to get started</div></div>
   </div>
   <div class="cart-footer" id="cartFooter" style="display:none;">
     <div class="cart-total-row">
       <span class="cart-total-lbl">Subtotal</span>
-      <span class="cart-total-val" id="cartTotal">â‚±0</span>
+      <span class="cart-total-val" id="cartTotal">₱0</span>
     </div>
-    <button class="btn-checkout" onclick="openModal('login')">Proceed to Checkout â†’</button>
+    <button class="btn-checkout" onclick="openModal('login')">Proceed to Checkout →</button>
     <p style="font-size:.72rem;color:var(--gray);text-align:center;margin-top:10px;">Secure checkout powered by PayMongo</p>
   </div>
 </div>
@@ -358,11 +358,11 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
 <!-- AUTH MODAL -->
 <div class="modal-overlay" id="authModal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
-    <div class="modal-header"><span class="wordmark">BAHAYTEK</span><p>Sign in to place your order</p><button class="modal-close" onclick="closeModal()">âœ•</button></div>
+    <div class="modal-header"><span class="wordmark">BAHAYTEK</span><p>Sign in to place your order</p><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="modal-body">
       <div class="modal-tabs"><button class="modal-tab active" id="tabLogin" onclick="switchTab('login')">Log In</button><button class="modal-tab" id="tabSignup" onclick="switchTab('signup')">Sign Up</button></div>
-      <div id="loginForm"><div class="modal-fg"><label>Email Address</label><input type="email" placeholder="you@email.com"/></div><div class="modal-fg"><label>Password</label><input type="password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"/></div><button class="btn-modal-submit" onclick="closeModal()">Log In â†’</button></div>
-      <div id="signupForm" style="display:none;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="modal-fg"><label>First Name</label><input type="text" placeholder="Juan"/></div><div class="modal-fg"><label>Last Name</label><input type="text" placeholder="dela Cruz"/></div></div><div class="modal-fg"><label>Email</label><input type="email" placeholder="you@email.com"/></div><div class="modal-fg"><label>Password</label><input type="password" placeholder="Create a password"/></div><button class="btn-modal-submit" onclick="closeModal()">Create Account â†’</button></div>
+      <div id="loginForm"><div class="modal-fg"><label>Email Address</label><input type="email" placeholder="you@email.com"/></div><div class="modal-fg"><label>Password</label><input type="password" placeholder="••••••••"/></div><button class="btn-modal-submit" onclick="closeModal()">Log In →</button></div>
+      <div id="signupForm" style="display:none;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="modal-fg"><label>First Name</label><input type="text" placeholder="Juan"/></div><div class="modal-fg"><label>Last Name</label><input type="text" placeholder="dela Cruz"/></div></div><div class="modal-fg"><label>Email</label><input type="email" placeholder="you@email.com"/></div><div class="modal-fg"><label>Password</label><input type="password" placeholder="Create a password"/></div><button class="btn-modal-submit" onclick="closeModal()">Create Account →</button></div>
     </div>
   </div>
 </div>
@@ -370,14 +370,14 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
 <!-- PRODUCT DETAIL MODAL -->
 <div class="modal-overlay" id="productModal" onclick="if(event.target===this)closeProductModal()">
   <div class="product-modal-box" style="position:relative">
-    <button class="pm-close" onclick="closeProductModal()">âœ•</button>
+    <button class="pm-close" onclick="closeProductModal()">✕</button>
     <div class="pm-top">
-      <div class="pm-img" id="pmImg">ðŸŒ¿</div>
+      <div class="pm-img" id="pmImg">🌿</div>
       <div class="pm-info">
         <div class="pm-cat" id="pmCat">Category</div>
         <div class="pm-name" id="pmName">Product Name</div>
         <div class="pm-desc" id="pmDesc">Description</div>
-        <div class="pm-price" id="pmPrice">â‚±0</div>
+        <div class="pm-price" id="pmPrice">₱0</div>
         <div class="pm-stock" id="pmStock"></div>
         <div class="pm-btns">
           <button class="btn-pm-cart" id="pmCartBtn">Add to Cart</button>
@@ -387,12 +387,12 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
   </div>
 </div>
 
-<div class="cart-toast" id="cartToast">ðŸ›’ <span id="cartMsg">Added!</span></div>
+<div class="cart-toast" id="cartToast">🛒 <span id="cartMsg">Added!</span></div>
 
 <!-- IMAGE LIGHTBOX MODAL -->
 <div class="image-lightbox-overlay" id="imageLightbox" onclick="if(event.target===this)closeLightbox()">
   <div class="image-lightbox-box">
-    <button class="lightbox-close" onclick="closeLightbox()">âœ•</button>
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
     <img id="lightboxImg" src="" alt="" class="image-lightbox-img"/>
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
@@ -400,46 +400,46 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
 
 <script>
 const PRODUCTS = [
-//   {id:1, name:'Tower Biogas Digester (50L)', cat:'Biogas', icon:'ðŸŒ¿', bg:'linear-gradient(135deg,#e8f5e9,#c8e6c9)', desc:'Compact stacked biogas digester. Produces methane from kitchen and farm waste. Ideal for household cooking fuel. Lab-tested design.', price:5200, stock:4, status:'in'},
-//   {id:2, name:'Solar Heating Cooker System', cat:'Solar', icon:'â˜€ï¸', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Parabolic solar cooker with heating coil system. Reaches 100Â°C+ temperatures. Excellent for cooking and boiling water. Portable and durable design.', price:3850, stock:6, status:'in'},
-//   {id:3, name:'Improved Terra Cotta Stove', cat:'Cooking', icon:'ðŸ”¥', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Efficient brick and clay cooking stove. Reduces fuel consumption by 60%. Complete building kit with instructions. Made from local materials.', price:3800, stock:5, status:'in'},
-//   {id:4, name:'Rainwater Harvesting Filter System', cat:'Water', icon:'ðŸ’§', bg:'linear-gradient(135deg,#e0f7ff,#b3e5ff)', desc:'3-stage multi-media filter for collected rainwater. Removes sediment, particles, and impurities. Gravity-fed, no electricity needed. 50L capacity.', price:3200, stock:7, status:'in'},
-//   {id:5, name:'Drip Irrigation Kit (100m)', cat:'Water', icon:'ðŸš¿', bg:'linear-gradient(135deg,#e1f5ff,#b3e5ff)', desc:'Complete gravity-fed drip irrigation system. 100m of drip hose with 20 emitters. Low water waste, perfect for vegetables. Easy plug-and-play setup.', price:2100, stock:12, status:'in'},
-//   {id:6, name:'DIY Solar Box Cooker', cat:'Solar', icon:'ðŸ³', bg:'linear-gradient(135deg,#ffe0b2,#ffcc80)', desc:'Box-type solar cooker made from local materials. Cooks meals using free solar energy. No fuel needed, portable. Perfect for demonstrations and field use.', price:1850, stock:6, status:'in'},
-//   {id:7, name:'Biogas System Pressure Gauge', cat:'Biogas', icon:'ðŸ«™', bg:'linear-gradient(135deg,#f0fff4,#d1fae5)', desc:'Manometer gauge for monitoring biogas digester pressure. 0-15 PSI range. Stainless steel construction. Essential safety tool for biogas systems.', price:580, stock:14, status:'in'},
-//   {id:8, name:'Greywater Recycling System', cat:'Water', icon:'ðŸ”„', bg:'linear-gradient(135deg,#ecfeff,#a5f3fc)', desc:'Gravity-fed greywater filter system. Reuses sink and shower water for garden irrigation. Reduces water waste by 40%. Complete installation kit included.', price:3900, stock:8, status:'in'},
-//   {id:9, name:'Seedling Propagation Tray Kit', cat:'Tools', icon:'ðŸŒ±', bg:'linear-gradient(135deg,#f0fff4,#d1fae5)', desc:'DIY seedling propagation tray system. Includes 20-cell seedling container, soil mix, and tools. Ideal for starting vegetables and herbs. Reusable design.', price:420, stock:18, status:'in'},
-//   {id:10, name:'Rotating Compost Drum (40L)', cat:'Compost', icon:'â™»ï¸', bg:'linear-gradient(135deg,#f5f1e8,#e8dcc8)', desc:'Rotating drum composter. 40L capacity. Produces compost in 2-3 months. Enclosed design prevents pests. Perfect for small households and gardens.', price:2450, stock:10, status:'in'},
-//   {id:11, name:'Solar Food Drying Cabinet', cat:'Solar', icon:'â˜€ï¸', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Solar-powered drying cabinet for fruits, vegetables, and herbs. Maintains 40-60Â°C temperature. Stainless steel interior. 20kg capacity per batch.', price:4200, stock:3, status:'low'},
-//   {id:12, name:'Vermiculture Composting System', cat:'Compost', icon:'ðŸª±', bg:'linear-gradient(135deg,#fce4db,#f8d4c8)', desc:'Red worm vermiculture composting system. 50L capacity. Converts organic waste to nutrient-rich compost. Complete with worms and bedding. Odor-free operation.', price:3250, stock:9, status:'in'},
+//   {id:1, name:'Tower Biogas Digester (50L)', cat:'Biogas', icon:'🌿', bg:'linear-gradient(135deg,#e8f5e9,#c8e6c9)', desc:'Compact stacked biogas digester. Produces methane from kitchen and farm waste. Ideal for household cooking fuel. Lab-tested design.', price:5200, stock:4, status:'in'},
+//   {id:2, name:'Solar Heating Cooker System', cat:'Solar', icon:'☀️', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Parabolic solar cooker with heating coil system. Reaches 100°C+ temperatures. Excellent for cooking and boiling water. Portable and durable design.', price:3850, stock:6, status:'in'},
+//   {id:3, name:'Improved Terra Cotta Stove', cat:'Cooking', icon:'🔥', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Efficient brick and clay cooking stove. Reduces fuel consumption by 60%. Complete building kit with instructions. Made from local materials.', price:3800, stock:5, status:'in'},
+//   {id:4, name:'Rainwater Harvesting Filter System', cat:'Water', icon:'💧', bg:'linear-gradient(135deg,#e0f7ff,#b3e5ff)', desc:'3-stage multi-media filter for collected rainwater. Removes sediment, particles, and impurities. Gravity-fed, no electricity needed. 50L capacity.', price:3200, stock:7, status:'in'},
+//   {id:5, name:'Drip Irrigation Kit (100m)', cat:'Water', icon:'🚿', bg:'linear-gradient(135deg,#e1f5ff,#b3e5ff)', desc:'Complete gravity-fed drip irrigation system. 100m of drip hose with 20 emitters. Low water waste, perfect for vegetables. Easy plug-and-play setup.', price:2100, stock:12, status:'in'},
+//   {id:6, name:'DIY Solar Box Cooker', cat:'Solar', icon:'🍳', bg:'linear-gradient(135deg,#ffe0b2,#ffcc80)', desc:'Box-type solar cooker made from local materials. Cooks meals using free solar energy. No fuel needed, portable. Perfect for demonstrations and field use.', price:1850, stock:6, status:'in'},
+//   {id:7, name:'Biogas System Pressure Gauge', cat:'Biogas', icon:'🫙', bg:'linear-gradient(135deg,#f0fff4,#d1fae5)', desc:'Manometer gauge for monitoring biogas digester pressure. 0-15 PSI range. Stainless steel construction. Essential safety tool for biogas systems.', price:580, stock:14, status:'in'},
+//   {id:8, name:'Greywater Recycling System', cat:'Water', icon:'🔄', bg:'linear-gradient(135deg,#ecfeff,#a5f3fc)', desc:'Gravity-fed greywater filter system. Reuses sink and shower water for garden irrigation. Reduces water waste by 40%. Complete installation kit included.', price:3900, stock:8, status:'in'},
+//   {id:9, name:'Seedling Propagation Tray Kit', cat:'Tools', icon:'🌱', bg:'linear-gradient(135deg,#f0fff4,#d1fae5)', desc:'DIY seedling propagation tray system. Includes 20-cell seedling container, soil mix, and tools. Ideal for starting vegetables and herbs. Reusable design.', price:420, stock:18, status:'in'},
+//   {id:10, name:'Rotating Compost Drum (40L)', cat:'Compost', icon:'♻️', bg:'linear-gradient(135deg,#f5f1e8,#e8dcc8)', desc:'Rotating drum composter. 40L capacity. Produces compost in 2-3 months. Enclosed design prevents pests. Perfect for small households and gardens.', price:2450, stock:10, status:'in'},
+//   {id:11, name:'Solar Food Drying Cabinet', cat:'Solar', icon:'☀️', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Solar-powered drying cabinet for fruits, vegetables, and herbs. Maintains 40-60°C temperature. Stainless steel interior. 20kg capacity per batch.', price:4200, stock:3, status:'low'},
+//   {id:12, name:'Vermiculture Composting System', cat:'Compost', icon:'🪱', bg:'linear-gradient(135deg,#fce4db,#f8d4c8)', desc:'Red worm vermiculture composting system. 50L capacity. Converts organic waste to nutrient-rich compost. Complete with worms and bedding. Odor-free operation.', price:3250, stock:9, status:'in'},
 
   // --- NEW PRODUCTS FROM FIELD PHOTOS ---
-  {id:13, name:'Activated Carbon Water Filter Loop', cat:'Water', icon:'ðŸº', img:'Fuel Stove Activated Carbon Water Filter Loop.jpg', bg:'linear-gradient(135deg,#e0f7ff,#b3e5ff)', desc:'Clay pot gravity water filter with activated carbon filtration loop. Removes contaminants through natural charcoal media. Comes with stainless steel stand and tap. No electricity needed.', price:2800, stock:7, status:'in'},
-  {id:14, name:'Orchid Poles from Waste Biomass', cat:'Garden', icon:'ðŸŒ¿', img:'Orchid Poles from Waste Biomass Materials.jpg', bg:'linear-gradient(135deg,#e8f5e9,#c8e6c9)', desc:'Upcycled biomass orchid growing poles. Compressed organic waste material provides ideal substrate for orchid root attachment. Comes with PVC core and cement base for stability.', price:380, stock:20, status:'in'},
-  {id:15, name:'Parabolic Solar Dish Cooker', cat:'Solar', icon:'ðŸ”†', img:'Parabolic Solar Dish Cooker.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Hexagonal mirror-tile parabolic dish solar cooker. Focuses sunlight to 300Â°C+ focal point. Mounted on upcycled car rim and tire base for stability. Adjustable pot support arm included.', price:4500, stock:5, status:'in'},
-  {id:16, name:'PizzaHex Oven', cat:'Cooking', icon:'ðŸ•', img:'PizzaHex Oven.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Hexagonal interlocking brick pizza and baking oven. Fan-assisted combustion for efficient heat. Reaches 250Â°C+ oven temperatures. Compact footprint. Built-in stainless steel frame. Perfect for bakeries and food businesses.', price:6800, stock:3, status:'low'},
-  {id:17, name:'Pocket Garden Barrel', cat:'Garden', icon:'ðŸª´', img:'Pocket Garden.jpg', bg:'linear-gradient(135deg,#f0fff4,#d1fae5)', desc:'Repurposed 60L drum converted into a multi-pocket vertical garden. 20+ planting pockets around the barrel. Ideal for pechay, herbs, and strawberries. Integrated irrigation tube and drainage. Maximizes small urban spaces.', price:1200, stock:15, status:'in'},
-  {id:18, name:'Seedling Briquettes', cat:'Garden', icon:'ðŸŒ±', img:'Seedling Briquettes.jpg', bg:'linear-gradient(135deg,#f0fff4,#c6efcd)', desc:'Compressed organic soil briquettes for seedling propagation. Dense yet breathable structure encourages healthy root development. Biodegradable â€” plant directly into the ground. Available in packs of 10.', price:180, stock:50, status:'in'},
-  {id:19, name:'Solar Food Dehydrator Cabinet', cat:'Solar', icon:'ðŸŒž', img:'Solar Food Dehydrator.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Large-capacity solar-assisted food dehydration cabinet. Black-body heat absorption with ventilation. Compatible with wood-fired heat assist for cloudy days. Ideal for drying fish, fruits, and herbs commercially.', price:7500, stock:2, status:'low'},
-  {id:20, name:'Brick Box Kiln', cat:'Kiln', icon:'ðŸ§±', img:'The Brick Box Kiln.jpg', bg:'linear-gradient(135deg,#fce4db,#f8d4c8)', desc:'Arched red-brick kiln for firing ceramics and clay products. Tunnel vault design retains heat efficiently. Wood or biomass fuel. Suitable for small-scale pottery, tile, and biochar production. Reaches 900Â°C+.', price:18500, stock:2, status:'low'},
-  {id:21, name:'PapaBrick Stove', cat:'Cooking', icon:'ðŸ”¥', img:'The PapaBrick Stove Kitchen.jpg', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Heavy-duty cylindrical biomass combustion stove. Insulated clay lining inside steel drum. Rocket stove principle with side fuel inlet. Produces tall, clean flame. Ideal for large-batch cooking or wok cooking.', price:2900, stock:8, status:'in'},
-  {id:22, name:'Solar Box Oven', cat:'Solar', icon:'â˜€ï¸', img:'The Solar Box Oven 2.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Flat-panel reflector solar box oven. Multi-panel reflective walls concentrate sunlight into insulated baking chamber. Glass lid retains heat. Reaches 120â€“150Â°C. Ideal for baking bread, rice, and slow-cooking.', price:3200, stock:6, status:'in'},
-  {id:23, name:'Stove Truck (Mobile Brick Stove)', cat:'Cooking', icon:'ðŸšš', img:'The Stove Truck 2.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Compact portable brick cooking stove with metal frame stand. Designed for street vendors and mobile kitchens. Efficient combustion chamber with adjustable air intake. Supports large kawali or kawa. Easy to set up and move.', price:3500, stock:6, status:'in'},
-  {id:24, name:'Terra Cotta Micro Oven', cat:'Cooking', icon:'ðŸº', img:'The Terra Cotta Micro Oven.jpg', bg:'linear-gradient(135deg,#ffe8d6,#ffd5b8)', desc:'Hand-built terra cotta micro oven with arched baking chamber. Integrates with a rocket stove base. Ideal for baking pan de sal, cookies, and small pastries. Made from locally sourced clay. Comes with stainless steel cage support.', price:4200, stock:4, status:'in'},
-  {id:25, name:'Brick InStove for Braising', cat:'Cooking', icon:'ðŸ«•', img:'Brick InStove for Braising.jpg', bg:'linear-gradient(135deg,#f5f1e8,#e8dcc8)', desc:'Cylindrical brick rocket stove specifically designed for slow braising and clay pot cooking. Top-loading fuel. Supports heavy palayok and cast-iron pots. Stainless steel pot rest included. Fuel-efficient design.', price:3100, stock:9, status:'in'},
-  {id:26, name:'Floating Garden System', cat:'Garden', icon:'ðŸ›¶', img:'Floating Garden.jpg', bg:'linear-gradient(135deg,#e0f7ff,#b3e5ff)', desc:'Flood-resilient floating garden platform. Built from upcycled plastic bottles and lumber frame with polycarbonate greenhouse cover. Grow vegetables during flooding. Buoyant and stable. Ideal for flood-prone barangays.', price:5800, stock:3, status:'low'},
-  {id:27, name:'Solar Dryer in Wings', cat:'Solar', icon:'ðŸ¦‹', img:'Solar Dryer in Wings.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Wing-panel solar dryer with multi-shelf drying trays. Foldable reflective side panels maximize solar exposure. Transparent polycarbonate roof. Dries fish, rice, herbs, and spices efficiently. Portable and weather-resistant.', price:3900, stock:5, status:'in'},
+  {id:13, name:'Activated Carbon Water Filter Loop', cat:'Water', icon:'🏺', img:'Fuel Stove Activated Carbon Water Filter Loop.jpg', bg:'linear-gradient(135deg,#e0f7ff,#b3e5ff)', desc:'Clay pot gravity water filter with activated carbon filtration loop. Removes contaminants through natural charcoal media. Comes with stainless steel stand and tap. No electricity needed.', price:2800, stock:7, status:'in'},
+  {id:14, name:'Orchid Poles from Waste Biomass', cat:'Garden', icon:'🌿', img:'Orchid Poles from Waste Biomass Materials.jpg', bg:'linear-gradient(135deg,#e8f5e9,#c8e6c9)', desc:'Upcycled biomass orchid growing poles. Compressed organic waste material provides ideal substrate for orchid root attachment. Comes with PVC core and cement base for stability.', price:380, stock:20, status:'in'},
+  {id:15, name:'Parabolic Solar Dish Cooker', cat:'Solar', icon:'🔆', img:'Parabolic Solar Dish Cooker.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Hexagonal mirror-tile parabolic dish solar cooker. Focuses sunlight to 300°C+ focal point. Mounted on upcycled car rim and tire base for stability. Adjustable pot support arm included.', price:4500, stock:5, status:'in'},
+  {id:16, name:'PizzaHex Oven', cat:'Cooking', icon:'🍕', img:'PizzaHex Oven.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Hexagonal interlocking brick pizza and baking oven. Fan-assisted combustion for efficient heat. Reaches 250°C+ oven temperatures. Compact footprint. Built-in stainless steel frame. Perfect for bakeries and food businesses.', price:6800, stock:3, status:'low'},
+  {id:17, name:'Pocket Garden Barrel', cat:'Garden', icon:'🪴', img:'Pocket Garden.jpg', bg:'linear-gradient(135deg,#f0fff4,#d1fae5)', desc:'Repurposed 60L drum converted into a multi-pocket vertical garden. 20+ planting pockets around the barrel. Ideal for pechay, herbs, and strawberries. Integrated irrigation tube and drainage. Maximizes small urban spaces.', price:1200, stock:15, status:'in'},
+  {id:18, name:'Seedling Briquettes', cat:'Garden', icon:'🌱', img:'Seedling Briquettes.jpg', bg:'linear-gradient(135deg,#f0fff4,#c6efcd)', desc:'Compressed organic soil briquettes for seedling propagation. Dense yet breathable structure encourages healthy root development. Biodegradable — plant directly into the ground. Available in packs of 10.', price:180, stock:50, status:'in'},
+  {id:19, name:'Solar Food Dehydrator Cabinet', cat:'Solar', icon:'🌞', img:'Solar Food Dehydrator.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Large-capacity solar-assisted food dehydration cabinet. Black-body heat absorption with ventilation. Compatible with wood-fired heat assist for cloudy days. Ideal for drying fish, fruits, and herbs commercially.', price:7500, stock:2, status:'low'},
+  {id:20, name:'Brick Box Kiln', cat:'Kiln', icon:'🧱', img:'The Brick Box Kiln.jpg', bg:'linear-gradient(135deg,#fce4db,#f8d4c8)', desc:'Arched red-brick kiln for firing ceramics and clay products. Tunnel vault design retains heat efficiently. Wood or biomass fuel. Suitable for small-scale pottery, tile, and biochar production. Reaches 900°C+.', price:18500, stock:2, status:'low'},
+  {id:21, name:'PapaBrick Stove', cat:'Cooking', icon:'🔥', img:'The PapaBrick Stove Kitchen.jpg', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Heavy-duty cylindrical biomass combustion stove. Insulated clay lining inside steel drum. Rocket stove principle with side fuel inlet. Produces tall, clean flame. Ideal for large-batch cooking or wok cooking.', price:2900, stock:8, status:'in'},
+  {id:22, name:'Solar Box Oven', cat:'Solar', icon:'☀️', img:'The Solar Box Oven 2.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Flat-panel reflector solar box oven. Multi-panel reflective walls concentrate sunlight into insulated baking chamber. Glass lid retains heat. Reaches 120–150°C. Ideal for baking bread, rice, and slow-cooking.', price:3200, stock:6, status:'in'},
+  {id:23, name:'Stove Truck (Mobile Brick Stove)', cat:'Cooking', icon:'🚚', img:'The Stove Truck 2.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Compact portable brick cooking stove with metal frame stand. Designed for street vendors and mobile kitchens. Efficient combustion chamber with adjustable air intake. Supports large kawali or kawa. Easy to set up and move.', price:3500, stock:6, status:'in'},
+  {id:24, name:'Terra Cotta Micro Oven', cat:'Cooking', icon:'🏺', img:'The Terra Cotta Micro Oven.jpg', bg:'linear-gradient(135deg,#ffe8d6,#ffd5b8)', desc:'Hand-built terra cotta micro oven with arched baking chamber. Integrates with a rocket stove base. Ideal for baking pan de sal, cookies, and small pastries. Made from locally sourced clay. Comes with stainless steel cage support.', price:4200, stock:4, status:'in'},
+  {id:25, name:'Brick InStove for Braising', cat:'Cooking', icon:'🫕', img:'Brick InStove for Braising.jpg', bg:'linear-gradient(135deg,#f5f1e8,#e8dcc8)', desc:'Cylindrical brick rocket stove specifically designed for slow braising and clay pot cooking. Top-loading fuel. Supports heavy palayok and cast-iron pots. Stainless steel pot rest included. Fuel-efficient design.', price:3100, stock:9, status:'in'},
+  {id:26, name:'Floating Garden System', cat:'Garden', icon:'🛶', img:'Floating Garden.jpg', bg:'linear-gradient(135deg,#e0f7ff,#b3e5ff)', desc:'Flood-resilient floating garden platform. Built from upcycled plastic bottles and lumber frame with polycarbonate greenhouse cover. Grow vegetables during flooding. Buoyant and stable. Ideal for flood-prone barangays.', price:5800, stock:3, status:'low'},
+  {id:27, name:'Solar Dryer in Wings', cat:'Solar', icon:'🦋', img:'Solar Dryer in Wings.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Wing-panel solar dryer with multi-shelf drying trays. Foldable reflective side panels maximize solar exposure. Transparent polycarbonate roof. Dries fish, rice, herbs, and spices efficiently. Portable and weather-resistant.', price:3900, stock:5, status:'in'},
 
   // --- BATCH 2 NEW PRODUCTS ---
-  {id:28, name:'Solar Tyre Oven', cat:'Solar', icon:'ðŸ”†', img:'Solar Tyre Oven.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Large parabolic solar concentrator built from foil-coated insulation and an upcycled car tire base. Deep concave dish focuses intense solar heat. Ideal for boiling, steaming, and frying. No fuel cost. DIY-buildable design.', price:2200, stock:8, status:'in'},
-  {id:29, name:'Stove Lantern', cat:'Cooking', icon:'ðŸ®', img:'Stove Lantern.jpg', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Biomass combustion stove with glass-chimney lantern design. Transparent glass cylinder channels heat upward for clean, efficient combustion. Doubles as ambient lighting at night. Steel drum base with side fuel inlet. Ideal for household cooking.', price:3400, stock:7, status:'in'},
-  {id:30, name:'Stove Rook', cat:'Cooking', icon:'â™œ', img:'Stove Rook.jpg', bg:'linear-gradient(135deg,#ffe8d6,#ffd5b8)', desc:'Castle-tower-shaped multi-tier clay rocket stove. Stacked interlocking sections with multiple air-intake holes. Stainless steel safety cage. Burns cleanly with small biomass fuel. Distinctive design makes it a conversation piece in any kitchen.', price:4800, stock:4, status:'in'},
-  {id:31, name:'The 4n2 Stove Oven', cat:'Cooking', icon:'ðŸ”¥', img:'The 4n2 Stove Oven.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Barrel-shaped clay-and-sand cob oven with integrated rocket stove base. Arched baking chamber sealed with adobe insulation. Reaches 300Â°C+. Ideal for baking bread, pizza, and roasting meats over extended cooking sessions.', price:5500, stock:3, status:'low'},
-  {id:32, name:'Holey Briquettes (Biomass)', cat:'Fuel', icon:'â­•', img:'The Holey Briquettes.jpg', bg:'linear-gradient(135deg,#f5f1e8,#e8dcc8)', desc:'Ring/donut-shaped compressed biomass briquettes. Center hole improves airflow for more complete combustion. Made from agricultural waste â€” rice husk, coconut coir, or paper pulp. Burns longer and cleaner than raw firewood. Sold per pack of 6.', price:120, stock:100, status:'in'},
-  {id:33, name:'Tablet Briquettes (Charcoal)', cat:'Fuel', icon:'ðŸ”²', img:'The Tablet Briquettes.jpg', bg:'linear-gradient(135deg,#3a3a3a,#5a5a5a)', desc:'Compact cylindrical charcoal briquettes with center hole for maximum airflow. Charred from local biomass waste. Longer burn time than commercial charcoal. Includes raw biomass log-type briquettes. Pack of 10 tablets. Ideal for compact stoves.', price:95, stock:150, status:'in'},
-  {id:34, name:'Holey Rocket Stove', cat:'Cooking', icon:'ðŸ”¥', img:'The Holey Rocket Stove.jpg', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Compact open-top clay rocket stove with characteristic holey body for maximum draft and combustion air. Hand-sculpted terracotta with built-in fuel shelf. Clean-burning with small sticks or briquettes. Lightweight and portable for camping and outdoor cooking.', price:1650, stock:12, status:'in'},
-  {id:35, name:'Peanut Tumbler Roaster', cat:'Cooking', icon:'ðŸ¥œ', img:'The Peanut Tumbler Roaster.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Rotating drum roaster for peanuts, coffee, and cacao. Stainless steel tumbler barrel on motorized axle. Heat from attached biomass stove circulates evenly. Motor-driven rotation ensures even roasting. Ideal for small food processors and farm enterprises.', price:6200, stock:4, status:'in'},
-  {id:36, name:'Stove Fish', cat:'Cooking', icon:'ðŸŸ', img:'The Stove Fish.jpg', bg:'linear-gradient(135deg,#ffe8d6,#ffd5b8)', desc:'Artisan fish-shaped terra cotta rocket stove. Sculpted body of a fish forms the combustion chamber and fuel intake. Functional art piece â€” cooks efficiently while serving as a decorative outdoor stove. Unique gift item and conversation starter. Handmade from local clay.', price:3800, stock:5, status:'in'},
+  {id:28, name:'Solar Tyre Oven', cat:'Solar', icon:'🔆', img:'Solar Tyre Oven.jpg', bg:'linear-gradient(135deg,#fff9e6,#ffe680)', desc:'Large parabolic solar concentrator built from foil-coated insulation and an upcycled car tire base. Deep concave dish focuses intense solar heat. Ideal for boiling, steaming, and frying. No fuel cost. DIY-buildable design.', price:2200, stock:8, status:'in'},
+  {id:29, name:'Stove Lantern', cat:'Cooking', icon:'🏮', img:'Stove Lantern.jpg', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Biomass combustion stove with glass-chimney lantern design. Transparent glass cylinder channels heat upward for clean, efficient combustion. Doubles as ambient lighting at night. Steel drum base with side fuel inlet. Ideal for household cooking.', price:3400, stock:7, status:'in'},
+  {id:30, name:'Stove Rook', cat:'Cooking', icon:'♜', img:'Stove Rook.jpg', bg:'linear-gradient(135deg,#ffe8d6,#ffd5b8)', desc:'Castle-tower-shaped multi-tier clay rocket stove. Stacked interlocking sections with multiple air-intake holes. Stainless steel safety cage. Burns cleanly with small biomass fuel. Distinctive design makes it a conversation piece in any kitchen.', price:4800, stock:4, status:'in'},
+  {id:31, name:'The 4n2 Stove Oven', cat:'Cooking', icon:'🔥', img:'The 4n2 Stove Oven.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Barrel-shaped clay-and-sand cob oven with integrated rocket stove base. Arched baking chamber sealed with adobe insulation. Reaches 300°C+. Ideal for baking bread, pizza, and roasting meats over extended cooking sessions.', price:5500, stock:3, status:'low'},
+  {id:32, name:'Holey Briquettes (Biomass)', cat:'Fuel', icon:'⭕', img:'The Holey Briquettes.jpg', bg:'linear-gradient(135deg,#f5f1e8,#e8dcc8)', desc:'Ring/donut-shaped compressed biomass briquettes. Center hole improves airflow for more complete combustion. Made from agricultural waste — rice husk, coconut coir, or paper pulp. Burns longer and cleaner than raw firewood. Sold per pack of 6.', price:120, stock:100, status:'in'},
+  {id:33, name:'Tablet Briquettes (Charcoal)', cat:'Fuel', icon:'🔲', img:'The Tablet Briquettes.jpg', bg:'linear-gradient(135deg,#3a3a3a,#5a5a5a)', desc:'Compact cylindrical charcoal briquettes with center hole for maximum airflow. Charred from local biomass waste. Longer burn time than commercial charcoal. Includes raw biomass log-type briquettes. Pack of 10 tablets. Ideal for compact stoves.', price:95, stock:150, status:'in'},
+  {id:34, name:'Holey Rocket Stove', cat:'Cooking', icon:'🔥', img:'The Holey Rocket Stove.jpg', bg:'linear-gradient(135deg,#ffebcd,#ffe8c0)', desc:'Compact open-top clay rocket stove with characteristic holey body for maximum draft and combustion air. Hand-sculpted terracotta with built-in fuel shelf. Clean-burning with small sticks or briquettes. Lightweight and portable for camping and outdoor cooking.', price:1650, stock:12, status:'in'},
+  {id:35, name:'Peanut Tumbler Roaster', cat:'Cooking', icon:'🥜', img:'The Peanut Tumbler Roaster.jpg', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', desc:'Rotating drum roaster for peanuts, coffee, and cacao. Stainless steel tumbler barrel on motorized axle. Heat from attached biomass stove circulates evenly. Motor-driven rotation ensures even roasting. Ideal for small food processors and farm enterprises.', price:6200, stock:4, status:'in'},
+  {id:36, name:'Stove Fish', cat:'Cooking', icon:'🐟', img:'The Stove Fish.jpg', bg:'linear-gradient(135deg,#ffe8d6,#ffd5b8)', desc:'Artisan fish-shaped terra cotta rocket stove. Sculpted body of a fish forms the combustion chamber and fuel intake. Functional art piece — cooks efficiently while serving as a decorative outdoor stove. Unique gift item and conversation starter. Handmade from local clay.', price:3800, stock:5, status:'in'},
 ];
 
 let cart = [];
@@ -450,14 +450,14 @@ function renderGrid(products) {
   const grid = document.getElementById('productGrid');
   grid.innerHTML = '';
   if (!products.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><div style="font-size:2rem;margin-bottom:12px">ðŸ”</div><div style="font-weight:700">No products found</div><div style="font-size:.82rem;margin-top:6px">Try a different search or category</div></div>';
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><div style="font-size:2rem;margin-bottom:12px">🔍</div><div style="font-weight:700">No products found</div><div style="font-size:.82rem;margin-top:6px">Try a different search or category</div></div>';
     return;
   }
   document.getElementById('resultsCount').textContent = `Showing ${products.length} product${products.length!==1?'s':''}`;
   products.forEach(p => {
     const badgeCls = p.status==='in'?'badge-instock':p.status==='low'?'badge-low':'badge-out';
-    const badgeTxt = p.status==='in'?'âœ“ In Stock':p.status==='low'?'âš  Low Stock':'Out of Stock';
-    const stockTxt = p.status==='in'?`<span class="stock-in">âœ“ In Stock</span> â€” ${p.stock} units`:p.status==='low'?`<span class="stock-low">âš  Low Stock</span> â€” ${p.stock} units`:`<span class="stock-out">âœ— Out of Stock</span>`;
+    const badgeTxt = p.status==='in'?'✓ In Stock':p.status==='low'?'⚠ Low Stock':'Out of Stock';
+    const stockTxt = p.status==='in'?`<span class="stock-in">✓ In Stock</span> — ${p.stock} units`:p.status==='low'?`<span class="stock-low">⚠ Low Stock</span> — ${p.stock} units`:`<span class="stock-out">✗ Out of Stock</span>`;
     const cartBtn = p.status!=='out'?`<button class="btn-add-cart" onclick="event.stopPropagation();addToCart(${p.id})">Add to Cart</button>`:`<button class="btn-add-cart" disabled>Notify Me</button>`;
     const imgSrc = p.img ? `BahayTek Inventions/${p.img}`.replace(/ /g, '%20') : '';
     const imgHtml = p.img ? `<img src="${imgSrc}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;cursor:zoom-in;" onerror="handleImageError(this, '${p.img}')"/>` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:${p.bg};">${p.icon}</div>`;
@@ -470,7 +470,7 @@ function renderGrid(products) {
           <div class="product-desc">${p.desc}</div>
           <div class="product-stock">${stockTxt}</div>
           <div class="product-footer">
-            <div class="product-price">â‚±${p.price.toLocaleString()}</div>
+            <div class="product-price">₱${p.price.toLocaleString()}</div>
             ${cartBtn}
           </div>
         </div>
@@ -545,7 +545,7 @@ function filterTabCat(cat, el) {
     el.classList.add('active');
   } else {
     // Extract category name from tab text
-    const catName = cat.replace(/^[â˜€ï¸ðŸ’§ðŸŒ¿â™»ï¸ðŸ”§ðŸ³ðŸª´ðŸ§±ðŸ”¥]\s*/g, '').trim();
+    const catName = cat.replace(/^[☀️💧🌿♻️🔧🍳🪴🧱🔥]\s*/g, '').trim();
     
     if (selectedCategories.has('All')) {
       selectedCategories.delete('All');
@@ -614,25 +614,25 @@ function updateCartUI() {
   const container = document.getElementById('cartItems');
   const footer = document.getElementById('cartFooter');
   if (!cart.length) {
-    container.innerHTML = '<div class="cart-empty"><div class="icon">ðŸ›’</div><div style="font-weight:700;margin-bottom:6px;">Your cart is empty</div><div style="font-size:.82rem;color:#aaa;">Add products to get started</div></div>';
+    container.innerHTML = '<div class="cart-empty"><div class="icon">🛒</div><div style="font-weight:700;margin-bottom:6px;">Your cart is empty</div><div style="font-size:.82rem;color:#aaa;">Add products to get started</div></div>';
     footer.style.display = 'none';
     return;
   }
   footer.style.display = 'block';
-  document.getElementById('cartTotal').textContent = `â‚±${total.toLocaleString()}`;
+  document.getElementById('cartTotal').textContent = `₱${total.toLocaleString()}`;
   container.innerHTML = cart.map(item => `
     <div class="cart-item">
       <div class="cart-item-icon">${item.icon}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-price">â‚±${(item.price * item.qty).toLocaleString()}</div>
+        <div class="cart-item-price">₱${(item.price * item.qty).toLocaleString()}</div>
       </div>
       <div class="cart-qty">
-        <button class="qty-btn" onclick="changeQty(${item.id},-1)">âˆ’</button>
+        <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
         <span class="qty-num">${item.qty}</span>
         <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
       </div>
-      <button class="remove-btn" onclick="removeFromCart(${item.id})">ðŸ—‘</button>
+      <button class="remove-btn" onclick="removeFromCart(${item.id})">🗑</button>
     </div>`).join('');
 }
 
@@ -653,9 +653,9 @@ function openProduct(id) {
   document.getElementById('pmCat').textContent = p.cat;
   document.getElementById('pmName').textContent = p.name;
   document.getElementById('pmDesc').textContent = p.desc;
-  document.getElementById('pmPrice').textContent = `â‚±${p.price.toLocaleString()}`;
+  document.getElementById('pmPrice').textContent = `₱${p.price.toLocaleString()}`;
   const stockEl = document.getElementById('pmStock');
-  stockEl.innerHTML = p.status==='in'?`<span class="stock-in">âœ“ In Stock â€” ${p.stock} units</span>`:p.status==='low'?`<span class="stock-low">âš  Low Stock â€” ${p.stock} units</span>`:`<span class="stock-out">âœ— Out of Stock</span>`;
+  stockEl.innerHTML = p.status==='in'?`<span class="stock-in">✓ In Stock — ${p.stock} units</span>`:p.status==='low'?`<span class="stock-low">⚠ Low Stock — ${p.stock} units</span>`:`<span class="stock-out">✗ Out of Stock</span>`;
   const btn = document.getElementById('pmCartBtn');
   btn.textContent = p.status!=='out' ? 'Add to Cart' : 'Out of Stock';
   btn.disabled = p.status === 'out';
@@ -742,16 +742,15 @@ function handleImageError(img, filename) {
 </script>
 <footer>
   <div class="footer-top">
-    <div class="footer-brand"><span class="wordmark"><span class="b">BAHAY</span>TEK</span><p>Bahay Teknik â€” Research, Product Development &amp; Community Training. Based in Camarines Norte, Bicol, Philippines.</p></div>
+    <div class="footer-brand"><span class="wordmark"><span class="b">BAHAY</span>TEK</span><p>Bahay Teknik — Research, Product Development &amp; Community Training. Based in Camarines Norte, Bicol, Philippines.</p></div>
     <div class="footer-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="consultation.html">Consultation</a></li></ul></div>
     <div class="footer-col"><h4>Products</h4><ul><li><a href="shop.html">Solar Products</a></li><li><a href="shop.html">Water Systems</a></li><li><a href="shop.html">Biogas Kits</a></li><li><a href="workshops.html">Workshops</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li>ðŸ“ Camarines Norte, Bicol</li><li>ðŸ“§ info@bahaytek.ph</li><li>ðŸ“ž +63 XXX XXX XXXX</li><li><a href="consultation.html">Book a Session</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li>📍 Camarines Norte, Bicol</li><li>📧 info@bahaytek.ph</li><li>📞 +63 XXX XXX XXXX</li><li><a href="consultation.html">Book a Session</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p>Â© 2025 Bahay Teknik. BSIT 2A IPT Project. All rights reserved.</p>
-    <p style="color:rgba(255,255,255,.16);">Built with ðŸŒ¿ in the Philippines</p>
+    <p>© 2025 Bahay Teknik. BSIT 2A IPT Project. All rights reserved.</p>
+    <p style="color:rgba(255,255,255,.16);">Built with 🌿 in the Philippines</p>
   </div>
 </footer>
 </body>
 </html>
-

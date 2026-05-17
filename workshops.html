@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Workshops & Training â€” BAHAYTEK</title>
+<title>Workshops & Training — BAHAYTEK</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -157,7 +157,7 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
 </nav>
 
 <div class="page-hero">
-  <div class="page-hero-badge">ðŸŽ“ Learning Programs</div>
+  <div class="page-hero-badge">🎓 Learning Programs</div>
   <h1>Workshops &amp; <em>Training</em></h1>
   <p>Hands-on programs designed for practical, real-world application in sustainable technology, agriculture, and appropriate engineering for local communities.</p>
   <div class="hero-stats">
@@ -186,7 +186,7 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
     <div class="em-header">
       <h3 id="emTitle">Enroll in Workshop</h3>
       <p id="emSubtitle">Complete the form below to register</p>
-      <button class="em-close" onclick="closeEnrollModal()">âœ•</button>
+      <button class="em-close" onclick="closeEnrollModal()">✕</button>
     </div>
     <div class="em-body">
       <div id="emInfo"></div>
@@ -200,25 +200,25 @@ footer{background:linear-gradient(160deg,#1a2e12 0%,#243d18 100%);padding:60px 7
         <div class="em-fg"><label>How did you hear about us?</label>
           <select><option>Facebook / Social Media</option><option>Friend / Colleague</option><option>Bahay Teknik Website</option><option>Flyer / Poster</option><option>Other</option></select>
         </div>
-        <button class="btn-em-submit" onclick="submitEnroll()">Confirm Registration â†’</button>
+        <button class="btn-em-submit" onclick="submitEnroll()">Confirm Registration →</button>
         <p style="font-size:.72rem;color:var(--gray);text-align:center;margin-top:10px;">You'll receive an email confirmation within 24 hours.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast">âœ… <span id="toastMsg">Success!</span></div>
+<div class="toast" id="toast">✅ <span id="toastMsg">Success!</span></div>
 
 <script>
 const WORKSHOPS = [
-  {id:1,icon:'ðŸŒ¿',bg:'rgba(128,177,85,.12)',title:'Biogas Digester Construction',desc:'Build a functional household-scale biogas system from scratch. Covers design, materials sourcing, installation, and safety protocols.',date:'May 10, 2025',time:'8:00 AM â€“ 5:00 PM',duration:'1 day',location:'Bahay Teknik Lab A, Camarines Norte',max:20,enrolled:14,fee:500,status:'open',trainer:'Engr. Reyes'},
-  {id:2,icon:'â˜€ï¸',bg:'rgba(251,191,36,.12)',title:'Off-Grid Solar Installation',desc:'Panel mounting, wiring, battery setup, and charge controller configuration for rural homes and farm sheds.',date:'May 17, 2025',time:'9:00 AM â€“ 4:00 PM',duration:'1 day',location:'Bahay Teknik Lab B',max:15,enrolled:9,fee:600,status:'open',trainer:'Engr. Santos'},
-  {id:3,icon:'ðŸ’§',bg:'rgba(14,165,233,.1)',title:'Rainwater Harvesting Systems',desc:'Design and assembly of 3-stage rainwater filtration and storage systems for agricultural and household use.',date:'May 24, 2025',time:'8:00 AM â€“ 1:00 PM',duration:'Half-day',location:'Lab A & B',max:18,enrolled:18,fee:400,status:'full',trainer:'Engr. Reyes'},
-  {id:4,icon:'â™»ï¸',bg:'rgba(109,40,217,.1)',title:'Composting & Soil Health',desc:'Practical guide to vermicomposting, organic waste management, and soil amendment for small-scale farms.',date:'June 7, 2025',time:'8:00 AM â€“ 12:00 PM',duration:'Half-day',location:'Bahay Teknik Lab A',max:25,enrolled:11,fee:300,status:'open',trainer:'Dr. Chua'},
-  {id:5,icon:'ðŸŒ¾',bg:'rgba(239,68,68,.1)',title:'Precision Irrigation Basics',desc:'Introduction to drip irrigation, moisture sensing, and water-efficient farming techniques for vegetable growers.',date:'June 14, 2025',time:'9:00 AM â€“ 3:00 PM',duration:'1 day',location:'Farm Site, Daet',max:20,enrolled:5,fee:450,status:'open',trainer:'Engr. Bautista'},
-  {id:6,icon:'ðŸ”¬',bg:'rgba(128,177,85,.12)',title:'Appropriate Tech for Agriculture',desc:'Overview of low-cost, locally-buildable tools for improving farm productivity sustainably.',date:'April 5, 2025',time:'8:00 AM â€“ 5:00 PM',duration:'1 day',location:'Bahay Teknik Lab',max:20,enrolled:20,fee:400,status:'completed',trainer:'Engr. Reyes'},
-  {id:7,icon:'ðŸ”‹',bg:'rgba(59,130,246,.1)',title:'Biogas Production for Homes',desc:'Setting up biogas digesters using organic household waste â€” a practical multi-day workshop.',date:'Apr 1â€“7, 2025',time:'8:00 AM â€“ 5:00 PM',duration:'1 week',location:'Bahay Teknik Lab',max:20,enrolled:16,fee:1200,status:'ongoing',trainer:'Engr. Reyes'},
-  {id:8,icon:'âš¡',bg:'rgba(234,179,8,.1)',title:'Green Home Design Principles',desc:'Passive design, ventilation, and sustainable materials for local housing contexts in Bicol Region.',date:'July 2025 â€“ TBD',time:'TBD',duration:'2 days',location:'Bahay Teknik Lab',max:20,enrolled:3,fee:600,status:'soon',trainer:'Arch. Lim'},
+  {id:1,icon:'🌿',bg:'rgba(128,177,85,.12)',title:'Biogas Digester Construction',desc:'Build a functional household-scale biogas system from scratch. Covers design, materials sourcing, installation, and safety protocols.',date:'May 10, 2025',time:'8:00 AM – 5:00 PM',duration:'1 day',location:'Bahay Teknik Lab A, Camarines Norte',max:20,enrolled:14,fee:500,status:'open',trainer:'Engr. Reyes'},
+  {id:2,icon:'☀️',bg:'rgba(251,191,36,.12)',title:'Off-Grid Solar Installation',desc:'Panel mounting, wiring, battery setup, and charge controller configuration for rural homes and farm sheds.',date:'May 17, 2025',time:'9:00 AM – 4:00 PM',duration:'1 day',location:'Bahay Teknik Lab B',max:15,enrolled:9,fee:600,status:'open',trainer:'Engr. Santos'},
+  {id:3,icon:'💧',bg:'rgba(14,165,233,.1)',title:'Rainwater Harvesting Systems',desc:'Design and assembly of 3-stage rainwater filtration and storage systems for agricultural and household use.',date:'May 24, 2025',time:'8:00 AM – 1:00 PM',duration:'Half-day',location:'Lab A & B',max:18,enrolled:18,fee:400,status:'full',trainer:'Engr. Reyes'},
+  {id:4,icon:'♻️',bg:'rgba(109,40,217,.1)',title:'Composting & Soil Health',desc:'Practical guide to vermicomposting, organic waste management, and soil amendment for small-scale farms.',date:'June 7, 2025',time:'8:00 AM – 12:00 PM',duration:'Half-day',location:'Bahay Teknik Lab A',max:25,enrolled:11,fee:300,status:'open',trainer:'Dr. Chua'},
+  {id:5,icon:'🌾',bg:'rgba(239,68,68,.1)',title:'Precision Irrigation Basics',desc:'Introduction to drip irrigation, moisture sensing, and water-efficient farming techniques for vegetable growers.',date:'June 14, 2025',time:'9:00 AM – 3:00 PM',duration:'1 day',location:'Farm Site, Daet',max:20,enrolled:5,fee:450,status:'open',trainer:'Engr. Bautista'},
+  {id:6,icon:'🔬',bg:'rgba(128,177,85,.12)',title:'Appropriate Tech for Agriculture',desc:'Overview of low-cost, locally-buildable tools for improving farm productivity sustainably.',date:'April 5, 2025',time:'8:00 AM – 5:00 PM',duration:'1 day',location:'Bahay Teknik Lab',max:20,enrolled:20,fee:400,status:'completed',trainer:'Engr. Reyes'},
+  {id:7,icon:'🔋',bg:'rgba(59,130,246,.1)',title:'Biogas Production for Homes',desc:'Setting up biogas digesters using organic household waste — a practical multi-day workshop.',date:'Apr 1–7, 2025',time:'8:00 AM – 5:00 PM',duration:'1 week',location:'Bahay Teknik Lab',max:20,enrolled:16,fee:1200,status:'ongoing',trainer:'Engr. Reyes'},
+  {id:8,icon:'⚡',bg:'rgba(234,179,8,.1)',title:'Green Home Design Principles',desc:'Passive design, ventilation, and sustainable materials for local housing contexts in Bicol Region.',date:'July 2025 – TBD',time:'TBD',duration:'2 days',location:'Bahay Teknik Lab',max:20,enrolled:3,fee:600,status:'soon',trainer:'Arch. Lim'},
 ];
 
 let currentFilter = 'all';
@@ -236,7 +236,7 @@ function getEnrollBtn(w) {
   if(w.status==='open') return `<button class="btn-enroll primary" onclick="openEnrollModal(${w.id})">Enroll Now</button>`;
   if(w.status==='full') return `<button class="btn-enroll waitlist" onclick="openEnrollModal(${w.id},'waitlist')">Join Waitlist</button>`;
   if(w.status==='completed') return `<button class="btn-enroll outline" onclick="showToast('Materials available after login')">View Materials</button>`;
-  if(w.status==='ongoing') return `<button class="btn-enroll outline" onclick="showToast('Session in progress â€” check next batch')">View Schedule</button>`;
+  if(w.status==='ongoing') return `<button class="btn-enroll outline" onclick="showToast('Session in progress — check next batch')">View Schedule</button>`;
   if(w.status==='soon') return `<button class="btn-enroll outline" onclick="openEnrollModal(${w.id},'preregister')">Pre-register</button>`;
   return '';
 }
@@ -264,11 +264,11 @@ function renderGrid() {
         <div class="wc-title">${w.title}</div>
         <div class="wc-desc">${w.desc}</div>
         <div class="wc-meta">
-          <div class="wc-meta-row">ðŸ“… <strong>${w.date}</strong> Â· ${w.time}</div>
-          <div class="wc-meta-row">â± <strong>${w.duration}</strong></div>
-          <div class="wc-meta-row">ðŸ“ <strong>${w.location}</strong></div>
-          <div class="wc-meta-row">ðŸ‘¥ Max <strong>${w.max}</strong> Â· Fee: <strong>â‚±${w.fee}</strong></div>
-          <div class="wc-meta-row">ðŸŽ“ Trainer: <strong>${w.trainer}</strong></div>
+          <div class="wc-meta-row">📅 <strong>${w.date}</strong> · ${w.time}</div>
+          <div class="wc-meta-row">⏱ <strong>${w.duration}</strong></div>
+          <div class="wc-meta-row">📍 <strong>${w.location}</strong></div>
+          <div class="wc-meta-row">👥 Max <strong>${w.max}</strong> · Fee: <strong>₱${w.fee}</strong></div>
+          <div class="wc-meta-row">🎓 Trainer: <strong>${w.trainer}</strong></div>
         </div>
         <div class="progress-wrap">
           <div class="progress-labels"><span>${w.status==='completed'?'Attendance':'Enrolled'}</span><span>${w.enrolled}/${w.max}</span></div>
@@ -278,7 +278,7 @@ function renderGrid() {
       </div>
     </div>`;
   }).join('');
-  if(!filtered.length) grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><div style="font-size:2rem;margin-bottom:12px">ðŸ“‹</div><div style="font-weight:700">No workshops in this category</div></div>';
+  if(!filtered.length) grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><div style="font-size:2rem;margin-bottom:12px">📋</div><div style="font-weight:700">No workshops in this category</div></div>';
 }
 
 function setFilter(f, el) {
@@ -301,7 +301,7 @@ function openEnrollModal(id, type) {
     <div class="em-info-row"><span class="em-info-lbl">Date</span><span class="em-info-val">${enrollTarget.date}</span></div>
     <div class="em-info-row"><span class="em-info-lbl">Time</span><span class="em-info-val">${enrollTarget.time}</span></div>
     <div class="em-info-row"><span class="em-info-lbl">Location</span><span class="em-info-val">${enrollTarget.location}</span></div>
-    <div class="em-info-row" style="border-bottom:none"><span class="em-info-lbl">Fee</span><span class="em-info-val" style="color:var(--forest);font-family:'DM Mono',monospace;">â‚±${enrollTarget.fee}</span></div>`;
+    <div class="em-info-row" style="border-bottom:none"><span class="em-info-lbl">Fee</span><span class="em-info-val" style="color:var(--forest);font-family:'DM Mono',monospace;">₱${enrollTarget.fee}</span></div>`;
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -329,16 +329,15 @@ renderGrid();
 </script>
 <footer>
   <div class="footer-top">
-    <div class="footer-brand"><span class="wordmark"><span class="b">BAHAY</span>TEK</span><p>Bahay Teknik â€” Research, Product Development &amp; Community Training. Based in Camarines Norte, Bicol, Philippines.</p></div>
+    <div class="footer-brand"><span class="wordmark"><span class="b">BAHAY</span>TEK</span><p>Bahay Teknik — Research, Product Development &amp; Community Training. Based in Camarines Norte, Bicol, Philippines.</p></div>
     <div class="footer-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="consultation.html">Consultation</a></li></ul></div>
     <div class="footer-col"><h4>Products</h4><ul><li><a href="shop.html">Solar Products</a></li><li><a href="shop.html">Water Systems</a></li><li><a href="shop.html">Biogas Kits</a></li><li><a href="workshops.html">Workshops</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li>ðŸ“ Camarines Norte, Bicol</li><li>ðŸ“§ info@bahaytek.ph</li><li>ðŸ“ž +63 XXX XXX XXXX</li><li><a href="consultation.html">Book a Session</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li>📍 Camarines Norte, Bicol</li><li>📧 info@bahaytek.ph</li><li>📞 +63 XXX XXX XXXX</li><li><a href="consultation.html">Book a Session</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p>Â© 2025 Bahay Teknik. BSIT 2A IPT Project. All rights reserved.</p>
-    <p style="color:rgba(255,255,255,.16);">Built with ðŸŒ¿ in the Philippines</p>
+    <p>© 2025 Bahay Teknik. BSIT 2A IPT Project. All rights reserved.</p>
+    <p style="color:rgba(255,255,255,.16);">Built with 🌿 in the Philippines</p>
   </div>
 </footer>
 </body>
 </html>
-
