@@ -12,9 +12,10 @@
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script>
+  var RC_SITE_KEY = '6LeDVu4sAAAAANFwYd3SggZGOZIQgdiL-2gtVnCp';
   window.onRecaptchaLoad = function() {
-    window.rcLogin = grecaptcha.render('rcLogin', { sitekey: '6LeDVu4sAAAAANFwYd3SggZGOZIQgdiL-2gtVnCp' });
-    window.rcReg   = grecaptcha.render('rcReg',   { sitekey: '6LeDVu4sAAAAANFwYd3SggZGOZIQgdiL-2gtVnCp' });
+    window.rcLogin = grecaptcha.render('rcLogin', { sitekey: RC_SITE_KEY });
+    // rcReg is rendered lazily when register tab opens — panel must be visible first
   };
 </script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
@@ -347,6 +348,10 @@ function switchTab(tab) {
   document.getElementById('headerSub').textContent = isLogin ? 'Sign in to your account' : 'Create your free account';
   hideAlert('loginAlert');
   hideAlert('registerAlert');
+  // Render register captcha lazily now that its panel is visible
+  if (!isLogin && window.rcReg === undefined && typeof grecaptcha !== 'undefined') {
+    window.rcReg = grecaptcha.render('rcReg', { sitekey: RC_SITE_KEY });
+  }
 }
 
 /* ── Save / restore token ─────────────────────────────────── */
