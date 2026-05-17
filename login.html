@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Login — BAHAYTEK</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({ appId: '1311789374412434', cookie: false, xfbml: false, version: 'v20.0' });
+  };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script>
+  window.onRecaptchaLoad = function() {
+    window.rcLogin = grecaptcha.render('rcLogin', { sitekey: 'REPLACE_WITH_YOUR_RECAPTCHA_SITE_KEY' });
+    window.rcReg   = grecaptcha.render('rcReg',   { sitekey: 'REPLACE_WITH_YOUR_RECAPTCHA_SITE_KEY' });
+  };
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 <style>
 :root{
   --forest:#336a29; --green:#498428; --emerald:#80b155; --mint:#c1d95c;
@@ -136,6 +149,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .spinner{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* reCAPTCHA */
+.recaptcha-wrap{display:flex;justify-content:center;margin:14px 0 6px}
+@media(max-width:380px){.recaptcha-wrap{transform:scale(.85);transform-origin:left center;margin-left:4px}}
+
 /* Responsive */
 @media(max-width:480px){
   .nav{padding:0 20px}
@@ -232,6 +249,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
               </div>
             </div>
             <div class="forgot-row"><a href="#" class="forgot-link">Forgot password?</a></div>
+            <div class="recaptcha-wrap"><div id="rcLogin"></div></div>
             <button type="submit" class="btn-submit" id="loginBtn">Log In</button>
           </form>
 
@@ -280,6 +298,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
                 </button>
               </div>
             </div>
+            <div class="recaptcha-wrap"><div id="rcReg"></div></div>
             <button type="submit" class="btn-submit" id="registerBtn">Create Account</button>
           </form>
 
@@ -363,15 +382,48 @@ function logout() {
   window.location.href = 'login.html';
 }
 
-/* ── OAuth redirect ───────────────────────────────────────── */
+/* ── OAuth ────────────────────────────────────────────────── */
 function oauthLogin(provider) {
+  if (provider === 'facebook') {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        handleFacebookToken(response.authResponse.accessToken);
+      } else {
+        showAlert('loginAlert',    'Facebook login was cancelled.', 'error');
+        showAlert('registerAlert', 'Facebook login was cancelled.', 'error');
+      }
+    }, { scope: 'email,public_profile' });
+    return;
+  }
   window.location.href = `${API}/${provider}`;
+}
+
+async function handleFacebookToken(accessToken) {
+  try {
+    const res  = await fetch(`${API}/facebook/token`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ accessToken }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      showAlert('loginAlert',    data.message || 'Facebook login failed', 'error');
+      showAlert('registerAlert', data.message || 'Facebook login failed', 'error');
+      return;
+    }
+    saveSession(data);
+    showLoggedIn(data.user);
+  } catch {
+    showAlert('loginAlert', 'Facebook login failed. Please try again.', 'error');
+  }
 }
 
 /* ── Email / Password Login ───────────────────────────────── */
 async function handleLogin(e) {
   e.preventDefault();
   hideAlert('loginAlert');
+  const captchaToken = grecaptcha.getResponse(window.rcLogin);
+  if (!captchaToken) { showAlert('loginAlert', 'Please complete the reCAPTCHA.', 'error'); return; }
   setLoading('loginBtn', true, 'Log In');
   try {
     const res  = await fetch(`${API}/login`, {
@@ -380,14 +432,20 @@ async function handleLogin(e) {
       body: JSON.stringify({
         email:    document.getElementById('loginEmail').value.trim(),
         password: document.getElementById('loginPassword').value,
+        captchaToken,
       }),
     });
     const data = await res.json();
-    if (!res.ok) { showAlert('loginAlert', data.message || 'Login failed', 'error'); return; }
+    if (!res.ok) {
+      showAlert('loginAlert', data.message || 'Login failed', 'error');
+      grecaptcha.reset(window.rcLogin);
+      return;
+    }
     saveSession(data);
     showLoggedIn(data.user);
   } catch {
     showAlert('loginAlert', 'Cannot connect to server. Is the backend running?', 'error');
+    grecaptcha.reset(window.rcLogin);
   } finally {
     setLoading('loginBtn', false, 'Log In');
   }
@@ -399,6 +457,8 @@ async function handleRegister(e) {
   hideAlert('registerAlert');
   const password = document.getElementById('regPassword').value;
   if (password.length < 6) { showAlert('registerAlert', 'Password must be at least 6 characters', 'error'); return; }
+  const captchaToken = grecaptcha.getResponse(window.rcReg);
+  if (!captchaToken) { showAlert('registerAlert', 'Please complete the reCAPTCHA.', 'error'); return; }
   setLoading('registerBtn', true, 'Create Account');
   try {
     const res  = await fetch(`${API}/register`, {
@@ -409,14 +469,20 @@ async function handleRegister(e) {
         lastName:  document.getElementById('regLast').value.trim(),
         email:     document.getElementById('regEmail').value.trim(),
         password,
+        captchaToken,
       }),
     });
     const data = await res.json();
-    if (!res.ok) { showAlert('registerAlert', data.message || 'Registration failed', 'error'); return; }
+    if (!res.ok) {
+      showAlert('registerAlert', data.message || 'Registration failed', 'error');
+      grecaptcha.reset(window.rcReg);
+      return;
+    }
     saveSession(data);
     showLoggedIn(data.user);
   } catch {
     showAlert('registerAlert', 'Cannot connect to server. Is the backend running?', 'error');
+    grecaptcha.reset(window.rcReg);
   } finally {
     setLoading('registerBtn', false, 'Create Account');
   }
